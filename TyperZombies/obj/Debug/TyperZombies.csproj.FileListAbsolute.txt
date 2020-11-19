@@ -1,0 +1,10 @@
+C:\Users\Widean Nagari\Desktop\TyperZombies\TyperZombies\bin\Debug\TyperZombies.exe.config
+C:\Users\Widean Nagari\Desktop\TyperZombies\TyperZombies\bin\Debug\TyperZombies.exe
+C:\Users\Widean Nagari\Desktop\TyperZombies\TyperZombies\bin\Debug\TyperZombies.pdb
+C:\Users\Widean Nagari\Desktop\TyperZombies\TyperZombies\obj\Debug\TyperZombies.csprojAssemblyReference.cache
+C:\Users\Widean Nagari\Desktop\TyperZombies\TyperZombies\obj\Debug\TyperZombies.Properties.Resources.resources
+C:\Users\Widean Nagari\Desktop\TyperZombies\TyperZombies\obj\Debug\TyperZombies.csproj.GenerateResource.cache
+C:\Users\Widean Nagari\Desktop\TyperZombies\TyperZombies\obj\Debug\TyperZombies.csproj.CoreCompileInputs.cache
+C:\Users\Widean Nagari\Desktop\TyperZombies\TyperZombies\obj\Debug\TyperZombies.exe
+C:\Users\Widean Nagari\Desktop\TyperZombies\TyperZombies\obj\Debug\TyperZombies.pdb
+C:\Users\Widean Nagari\Desktop\TyperZombies\TyperZombies\obj\Debug\TyperZombies.Form1.resources
