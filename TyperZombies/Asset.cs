@@ -15,6 +15,7 @@ namespace TyperZombies
         public List<Image> ageorge { get; set; }
         public List<Image> beatrix { get; set; }
         public List<string> bankKata { get; set; }
+        Random r;
         public Asset()
         {
             jester = new List<Image>();
@@ -93,6 +94,14 @@ namespace TyperZombies
                 bankKata.Add(line);
             }
             sr.Close();
+
+            r = new Random();
+        }
+
+        public string randomKata()
+        {
+            int idx = r.Next(0,102);
+            return bankKata[idx];
         }
     }
 }

@@ -9,14 +9,14 @@ namespace TyperZombies
 {
     public class AGeorge : Zombie
     {
-        public AGeorge(int x, int y, Asset assets, string kata) : base(x, y, assets, kata)
+        public AGeorge(int x, int y, Asset assets, string kata, Image img) : base(x, y, assets, kata, img)
         {
             ctr = 0;
             damage = 150;
             gold = 130;
             score = 275;
             hp = 2;
-            speed = 60;
+            speed = 6;
         }
 
         public void gantiAnimasi(List<Image> arrImg)

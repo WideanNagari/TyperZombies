@@ -9,14 +9,14 @@ namespace TyperZombies
 {
     public class Beatrix : Zombie
     {
-        public Beatrix(int x, int y, Asset assets, string kata) : base(x, y, assets,kata)
+        public Beatrix(int x, int y, Asset assets, string kata, Image img) : base(x, y, assets,kata,img)
         {
             ctr = 0;
             damage = 300;
             gold = 175;
             score = 350;
             hp = 3;
-            speed = 50;
+            speed = 5;
         }
 
         public void gantiAnimasi(List<Image> arrImg)

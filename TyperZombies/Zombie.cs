@@ -12,6 +12,7 @@ namespace TyperZombies
         public int x { get; set; }
         public int y { get; set; }
         public bool dead { get; set; }
+        public bool ketemu { get; set; }
         public int ctr { get; set; }
         public int ctr2 { get; set; }
         public Image sprite { get; set; }
@@ -23,8 +24,9 @@ namespace TyperZombies
         public string kata { get; set; }
         protected Asset assets;
 
-        public Zombie(int x, int y, Asset assets, string kata)
+        public Zombie(int x, int y, Asset assets, string kata, Image img)
         {
+            this.sprite = img;
             this.kata = kata;
             this.ctr = 0;
             this.ctr2 = 0;
@@ -32,6 +34,7 @@ namespace TyperZombies
             this.y = y;
             this.dead = false;
             this.assets = assets;
+            this.ketemu = false;
         }
     }
 }

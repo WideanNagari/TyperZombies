@@ -9,13 +9,13 @@ namespace TyperZombies
 {
     public class Jester : Zombie
     {
-        public Jester(int x, int y, Asset assets, string kata) : base(x, y, assets, kata)
+        public Jester(int x, int y, Asset assets, string kata, Image img) : base(x, y, assets, kata, img)
         {
             damage = 100;
             gold = 50;
             score = 100;
             hp = 1;
-            speed = 80;
+            speed = 8;
         }
 
         public void gantiAnimasi(List<Image> arrImg)
@@ -40,10 +40,6 @@ namespace TyperZombies
 
             if (dead)
             {
-                if (ctr > 17)
-                {
-                    ctr = 10;
-                }
                 sprite = arrImg[ctr];
                 ctr++;
             }
