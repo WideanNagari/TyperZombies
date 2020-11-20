@@ -16,7 +16,7 @@ namespace TyperZombies
             gold = 130;
             score = 275;
             hp = 2;
-            speed = 6;
+            speed = 4;
         }
 
         public void gantiAnimasi(List<Image> arrImg)

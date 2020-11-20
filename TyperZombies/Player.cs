@@ -14,8 +14,10 @@ namespace TyperZombies
         public int gold { get; set; }
         public int hp { get; set; }
         public int maxhp { get; set; }
+        public int kill { get; set; }
+        public int party { get; set; }
 
-        public Player(string nama, int level, int score, int gold, int hp, int maxhp)
+        public Player(string nama, int level, int score, int gold, int hp, int maxhp, int kill, int party)
         {
             this.nama = nama;
             this.level = level;
@@ -23,6 +25,8 @@ namespace TyperZombies
             this.gold = gold;
             this.hp = hp;
             this.maxhp = maxhp;
+            this.kill = kill;
+            this.party = party;
         }
 
         public Player(string nama)
@@ -33,6 +37,8 @@ namespace TyperZombies
             this.gold = 0;
             this.hp = 1500;
             this.maxhp = 1500;
+            this.kill = 0;
+            this.party = 0;
         }
     }
 }

@@ -34,6 +34,7 @@ namespace TyperZombies
             label4.Text = "Level: "+p1.level;
             progressBar1.Maximum = p1.maxhp;
             progressBar1.Value = p1.hp;
+            progressBar2.Value = p1.party;
 
             r = new Random();
             assets = new Asset();
@@ -41,7 +42,7 @@ namespace TyperZombies
             fontext2 = new SolidBrush(Color.Yellow);
             fontext = new SolidBrush(Color.LightCyan);
             f = new Font("Comic Sans ms", 16);
-            int jumlah = r.Next(1, 4);
+            int jumlah = r.Next(1, 3);
             for (int i = 0; i < jumlah; i++)
             {
                 int jenis = r.Next(0, 4);
@@ -94,9 +95,6 @@ namespace TyperZombies
                 } 
             }
             
-            //jester j.y+135
-            //beatrix j.y+185
-            //george & ageorge = j.y+165
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -125,7 +123,11 @@ namespace TyperZombies
         {
             foreach (Zombie z in arrZombie)
             {
-                if (!z.dead) z.x += z.speed;
+                if (!z.dead)
+                {
+                    if(p1.party>0) z.x += z.speed * 15/10;
+                    else z.x += z.speed;
+                }
                 if (z is Jester) ((Jester)z).gantiAnimasi(assets.jester);
                 if (z is George) ((George)z).gantiAnimasi(assets.george);
                 if (z is AGeorge) ((AGeorge)z).gantiAnimasi(assets.ageorge);
@@ -133,31 +135,6 @@ namespace TyperZombies
             }
             for (int i = arrZombie.Count - 1; i >= 0; i--)
             {
-                if (arrZombie[i] is Jester)
-                {
-                    if (arrZombie[i].ctr == 18)
-                    {
-                        p1.score += arrZombie[i].score;
-                        p1.gold += arrZombie[i].gold;
-                        label2.Text = "Score: " + p1.score;
-                        label3.Text = "Gold: " + p1.gold;
-
-                        arrZombie.RemoveAt(i);
-                    }
-                }
-                else
-                {
-                    if (arrZombie[i].ctr == 13)
-                    {
-                        p1.score += arrZombie[i].score;
-                        p1.gold += arrZombie[i].gold;
-                        label2.Text = "Score: " + p1.score;
-                        label3.Text = "Gold: " + p1.gold;
-
-                        arrZombie.RemoveAt(i);
-                    }
-                }
-
                 if (arrZombie[i].x >= 1050)
                 {
                     p1.hp -= arrZombie[i].damage;
@@ -173,6 +150,79 @@ namespace TyperZombies
                     }
                     arrZombie.RemoveAt(i);
                 }
+                if (arrZombie[i] is Jester)
+                {
+                    if (arrZombie[i].ctr == 18)
+                    {
+                        if (arrZombie[i].doubled)
+                        {
+                            p1.score += arrZombie[i].score * 2;
+                            p1.gold += arrZombie[i].gold * 2;
+                        }
+                        else
+                        {
+                            p1.score += arrZombie[i].score;
+                            p1.gold += arrZombie[i].gold;
+                        }
+                        p1.kill++;
+                        if (p1.kill % 5 == 0 && p1.party == 0)
+                        {
+                            p1.level++;
+                            p1.gold += 1000;
+                            label4.Text = "Level: " + p1.level;
+                        }
+                        label2.Text = "Score: " + p1.score;
+                        label3.Text = "Gold: " + p1.gold;
+
+                        arrZombie.RemoveAt(i);
+                    }
+                }
+                else
+                {
+                    if (arrZombie[i].ctr == 13)
+                    {
+                        if (arrZombie[i].doubled)
+                        {
+                            p1.score += arrZombie[i].score * 2;
+                            p1.gold += arrZombie[i].gold * 2;
+                        }
+                        else
+                        {
+                            p1.score += arrZombie[i].score;
+                            p1.gold += arrZombie[i].gold;
+                        }
+                        p1.kill++;
+                        if (p1.kill%5==0 && p1.party==0)
+                        {
+                            p1.level++;
+                            p1.gold += 1000;
+                            label4.Text = "Level: "+p1.level;
+                        }
+                        label2.Text = "Score: " + p1.score;
+                        label3.Text = "Gold: " + p1.gold;
+
+                        arrZombie.RemoveAt(i);
+                    }
+                }
+            }
+            if (p1.level % 3 == 0 && p1.party == 0)
+            {
+                p1.party = 100;
+                progressBar2.Value = p1.party;
+                label5.Visible = true;
+            }
+            else if (p1.level % 3 == 0)
+            {
+                //kecepatan,gold,skor semua zombie ditambah
+                //kecepatan spawn ditambah
+                p1.party -= 1;
+                progressBar2.Value = p1.party;
+                if (p1.party==0)
+                {
+                    p1.level++;
+                    label4.Text = "Level: "+p1.level;
+                    label5.Visible = false;
+                }
             }
             Invalidate();
         }
@@ -184,7 +234,13 @@ namespace TyperZombies
                 {
                     if (z.kata.Equals(textBox1.Text))
                     {
-                        z.dead = true;
+                        z.hp -= 1;
+                        z.kata = assets.randomKata();
+                        if (z.hp <= 0)
+                        {
+                            if (p1.party > 0) z.doubled = true;
+                            z.dead = true;
+                        }
                     }
                     z.ketemu = false;
                 }
@@ -194,9 +250,11 @@ namespace TyperZombies
 
         private void timer2_Tick(object sender, EventArgs e)
         {
-            if (ctrSpawn == 3)
+            int cd = 3;
+            if (p1.party>0) cd = 2;
+            if (ctrSpawn == cd)
             {
-                int jumlah = r.Next(1, 4);
+                int jumlah = r.Next(1, 3);
                 for (int i = 0; i < jumlah; i++)
                 {
                     int jenis = r.Next(0, 4);

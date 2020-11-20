@@ -13,6 +13,7 @@ namespace TyperZombies
         public int y { get; set; }
         public bool dead { get; set; }
         public bool ketemu { get; set; }
+        public bool doubled { get; set; }
         public int ctr { get; set; }
         public int ctr2 { get; set; }
         public Image sprite { get; set; }
@@ -35,6 +36,7 @@ namespace TyperZombies
             this.dead = false;
             this.assets = assets;
             this.ketemu = false;
+            this.doubled = false;
         }
     }
 }
