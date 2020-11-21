@@ -33,6 +33,5 @@ namespace TyperZombies
         {
             this.Close();
         }
-
     }
 }

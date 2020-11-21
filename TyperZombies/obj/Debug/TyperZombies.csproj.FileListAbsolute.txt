@@ -16,3 +16,4 @@ C:\Users\Widean Nagari\Desktop\TyperZombies\TyperZombies\obj\Debug\TyperZombies.
 C:\Users\Widean Nagari\Desktop\TyperZombies\TyperZombies\obj\Debug\TyperZombies.Newgame.resources
 C:\Users\Widean Nagari\Desktop\TyperZombies\TyperZombies\obj\Debug\TyperZombies.Status.resources
 C:\Users\Widean Nagari\Desktop\TyperZombies\TyperZombies\obj\Debug\TyperZombies.Shop.resources
+C:\Users\Widean Nagari\Desktop\TyperZombies\TyperZombies\obj\Debug\TyperZombies.Cheat.resources

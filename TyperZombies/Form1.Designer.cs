@@ -44,7 +44,6 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBox1
@@ -144,7 +143,8 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(1384, 93);
+            this.button2.Enabled = false;
+            this.button2.Location = new System.Drawing.Point(1384, 151);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(94, 92);
             this.button2.TabIndex = 10;
@@ -152,7 +152,8 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(1384, 205);
+            this.button3.Enabled = false;
+            this.button3.Location = new System.Drawing.Point(1384, 263);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(94, 92);
             this.button3.TabIndex = 11;
@@ -160,7 +161,8 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(1384, 317);
+            this.button4.Enabled = false;
+            this.button4.Location = new System.Drawing.Point(1384, 375);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(94, 92);
             this.button4.TabIndex = 12;
@@ -168,26 +170,18 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(1384, 426);
+            this.button5.Enabled = false;
+            this.button5.Location = new System.Drawing.Point(1384, 484);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(94, 92);
             this.button5.TabIndex = 13;
             this.button5.UseVisualStyleBackColor = true;
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(1384, 535);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(94, 92);
-            this.button6.TabIndex = 14;
-            this.button6.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1490, 739);
-            this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
@@ -231,7 +225,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
     }
 }
 

@@ -39,9 +39,8 @@ namespace TyperZombies
             button1.Image = (Image)(new Bitmap(Image.FromFile("./asset2/pauseI.png"), new Size(57, 57)));
             button2.Image = (Image)(new Bitmap(Image.FromFile("./asset2/bomb.png"), new Size(57, 57)));
             button3.Image = (Image)(new Bitmap(Image.FromFile("./asset2/heal.png"), new Size(70, 70)));
-            button4.Image = (Image)(new Bitmap(Image.FromFile("./asset2/Hp.png"), new Size(57, 57)));
-            button5.Image = (Image)(new Bitmap(Image.FromFile("./asset2/gold.png"), new Size(70, 70)));
-            button6.Image = (Image)(new Bitmap(Image.FromFile("./asset2/box.png"), new Size(75, 75)));
+            button4.Image = (Image)(new Bitmap(Image.FromFile("./asset2/gold.png"), new Size(70, 70)));
+            button5.Image = (Image)(new Bitmap(Image.FromFile("./asset2/box.png"), new Size(70, 70)));
 
             r = new Random();
             assets = new Asset();
@@ -122,6 +121,18 @@ namespace TyperZombies
                     }
                 }
                 else z.ketemu = false;
+            }
+            if (textBox1.Text.Equals("ChEaT"))
+            {
+                timer1.Stop();
+                timer2.Stop();
+                Cheat c = new Cheat();
+                this.Hide();
+                c.ShowDialog();
+                this.Show();
+                timer1.Start();
+                timer2.Start();
+                textBox1.Text = "";
             }
         }
 
@@ -285,6 +296,8 @@ namespace TyperZombies
             Pause p = new Pause();
             p.ShowDialog();
             this.Show();
+            timer1.Start();
+            timer2.Start();
         }
     }
 }

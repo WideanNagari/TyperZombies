@@ -37,6 +37,7 @@
             // 
             // button1
             // 
+            this.button1.Font = new System.Drawing.Font("Comic Sans MS", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(566, 175);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(322, 70);
@@ -47,6 +48,7 @@
             // 
             // button2
             // 
+            this.button2.Font = new System.Drawing.Font("Comic Sans MS", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Location = new System.Drawing.Point(566, 268);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(322, 70);
@@ -57,6 +59,7 @@
             // 
             // button3
             // 
+            this.button3.Font = new System.Drawing.Font("Comic Sans MS", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.Location = new System.Drawing.Point(566, 359);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(322, 70);
@@ -67,6 +70,7 @@
             // 
             // button4
             // 
+            this.button4.Font = new System.Drawing.Font("Comic Sans MS", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.Location = new System.Drawing.Point(566, 451);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(322, 70);
@@ -76,6 +80,7 @@
             // 
             // button5
             // 
+            this.button5.Font = new System.Drawing.Font("Comic Sans MS", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.Location = new System.Drawing.Point(566, 541);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(322, 70);
