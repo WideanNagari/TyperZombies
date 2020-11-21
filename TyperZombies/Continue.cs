@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace TyperZombies
 {
@@ -16,10 +18,23 @@ namespace TyperZombies
         {
             InitializeComponent();
         }
-
+        List<string> arrP;
+        Player p;
+        XmlDocument doc;
+        string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=" + AppDomain.CurrentDomain.BaseDirectory + "db_proyek.mdf;Integrated Security=True;Connect Timeout=30";
         private void Continue_Load(object sender, EventArgs e)
         {
             button1.Image = (Image)(new Bitmap(Image.FromFile("./asset2/back.png"), new Size(180, 65)));
+            arrP = new List<string>();
+            SqlConnection conn = new SqlConnection(connectionString);
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("Select * From player", conn);
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                arrP.Add(reader.GetString(1) + " " + reader.GetString(2));
+            }
+            conn.Close();
         }
 
         private void Continue_Paint(object sender, PaintEventArgs e)
@@ -32,6 +47,63 @@ namespace TyperZombies
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text == "" || textBox2.Text == "")
+            {
+                MessageBox.Show("Mohon isi semua field!");
+            }
+            else
+            {
+                bool ada = false;
+                string pass = "";
+                foreach (string s in arrP)
+                {
+                    string[] arr = s.Split(' ');
+                    if (arr[0].Equals(textBox1.Text))
+                    {
+                        pass = arr[1];
+                        ada = true;
+                    }
+                }
+                if (!ada)
+                {
+                    MessageBox.Show("Username tidak ditemukan!", "Gagal!");
+                }
+                else
+                {
+                    if (textBox2.Text == pass)
+                    {
+                        MessageBox.Show("ada");
+                        p = new Player(textBox1.Text);
+                        load(p);
+                    }
+                    else MessageBox.Show("Password salah!");
+                }
+            }
+        }
+
+        private void load(Player p)
+        {
+            doc = new XmlDocument();
+            doc.Load(p.nama+".xml");
+            foreach (XmlNode item in doc.DocumentElement.ChildNodes)
+            {
+                p.level = Convert.ToInt32(item.Attributes["level"].InnerText);
+                p.score = Convert.ToInt32(item.Attributes["score"].InnerText);
+                p.gold = Convert.ToInt32(item.Attributes["gold"].InnerText);
+                p.hp = Convert.ToInt32(item.Attributes["hp"].InnerText);
+                p.maxhp = Convert.ToInt32(item.Attributes["maxhp"].InnerText);
+                p.kill = Convert.ToInt32(item.Attributes["kill"].InnerText);
+                p.party = Convert.ToInt32(item.Attributes["party"].InnerText);
+                p.bomb = Convert.ToInt32(item.Attributes["bomb"].InnerText);
+                p.heal = Convert.ToInt32(item.Attributes["heal"].InnerText);
+                p.hpBooster = Convert.ToInt32(item.Attributes["hpBooster"].InnerText);
+                p.sog = Convert.ToInt32(item.Attributes["sog"].InnerText);
+                p.aBox = Convert.ToInt32(item.Attributes["aBox"].InnerText);
+            }
         }
     }
 }
