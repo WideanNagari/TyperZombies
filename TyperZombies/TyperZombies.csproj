@@ -46,9 +46,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="About.Designer.cs">
+      <DependentUpon>About.cs</DependentUpon>
+    </Compile>
     <Compile Include="AGeorge.cs" />
     <Compile Include="Asset.cs" />
     <Compile Include="Beatrix.cs" />
+    <Compile Include="Continue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Continue.Designer.cs">
+      <DependentUpon>Continue.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -56,13 +68,67 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="George.cs" />
+    <Compile Include="Highscore.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Highscore.Designer.cs">
+      <DependentUpon>Highscore.cs</DependentUpon>
+    </Compile>
     <Compile Include="Jester.cs" />
+    <Compile Include="MainMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainMenu.Designer.cs">
+      <DependentUpon>MainMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Newgame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Newgame.Designer.cs">
+      <DependentUpon>Newgame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pause.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pause.Designer.cs">
+      <DependentUpon>Pause.cs</DependentUpon>
+    </Compile>
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Shop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Shop.Designer.cs">
+      <DependentUpon>Shop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Status.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Status.Designer.cs">
+      <DependentUpon>Status.cs</DependentUpon>
+    </Compile>
     <Compile Include="Zombie.cs" />
+    <EmbeddedResource Include="About.resx">
+      <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Continue.resx">
+      <DependentUpon>Continue.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Highscore.resx">
+      <DependentUpon>Highscore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainMenu.resx">
+      <DependentUpon>MainMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Newgame.resx">
+      <DependentUpon>Newgame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pause.resx">
+      <DependentUpon>Pause.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -74,6 +140,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Shop.resx">
+      <DependentUpon>Shop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Status.resx">
+      <DependentUpon>Status.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

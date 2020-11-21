@@ -63,7 +63,6 @@ namespace TyperZombies
         {
             Graphics g = e.Graphics;
             g.DrawImage(Image.FromFile("background.png"), 0, 0, 1120, 600);
-
             foreach (Zombie z in arrZombie)
             {
                 g.DrawImage(z.sprite, z.x, z.y, z.sprite.Width / 2.3f, z.sprite.Height / 2.3f);
@@ -135,7 +134,7 @@ namespace TyperZombies
             }
             for (int i = arrZombie.Count - 1; i >= 0; i--)
             {
-                if (arrZombie[i].x >= 1050)
+                if (arrZombie[i].x >= 1000)
                 {
                     p1.hp -= arrZombie[i].damage;
                     if (progressBar1.Value - arrZombie[i].damage > 0)
@@ -269,6 +268,16 @@ namespace TyperZombies
 
             Invalidate();
             ctrSpawn++;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            timer1.Stop();
+            timer2.Stop();
+            Pause p = new Pause();
+            p.ShowDialog();
+            this.Show();
         }
     }
 }

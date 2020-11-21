@@ -8,3 +8,11 @@ C:\Users\Widean Nagari\Desktop\TyperZombies\TyperZombies\obj\Debug\TyperZombies.
 C:\Users\Widean Nagari\Desktop\TyperZombies\TyperZombies\obj\Debug\TyperZombies.exe
 C:\Users\Widean Nagari\Desktop\TyperZombies\TyperZombies\obj\Debug\TyperZombies.pdb
 C:\Users\Widean Nagari\Desktop\TyperZombies\TyperZombies\obj\Debug\TyperZombies.Form1.resources
+C:\Users\Widean Nagari\Desktop\TyperZombies\TyperZombies\obj\Debug\TyperZombies.MainMenu.resources
+C:\Users\Widean Nagari\Desktop\TyperZombies\TyperZombies\obj\Debug\TyperZombies.About.resources
+C:\Users\Widean Nagari\Desktop\TyperZombies\TyperZombies\obj\Debug\TyperZombies.Pause.resources
+C:\Users\Widean Nagari\Desktop\TyperZombies\TyperZombies\obj\Debug\TyperZombies.Highscore.resources
+C:\Users\Widean Nagari\Desktop\TyperZombies\TyperZombies\obj\Debug\TyperZombies.Continue.resources
+C:\Users\Widean Nagari\Desktop\TyperZombies\TyperZombies\obj\Debug\TyperZombies.Newgame.resources
+C:\Users\Widean Nagari\Desktop\TyperZombies\TyperZombies\obj\Debug\TyperZombies.Status.resources
+C:\Users\Widean Nagari\Desktop\TyperZombies\TyperZombies\obj\Debug\TyperZombies.Shop.resources
