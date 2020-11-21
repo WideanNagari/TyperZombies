@@ -16,7 +16,7 @@ namespace TyperZombies
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Pause());
+            Application.Run(new Form1());
         }
     }
 }

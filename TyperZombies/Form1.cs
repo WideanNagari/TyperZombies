@@ -36,6 +36,13 @@ namespace TyperZombies
             progressBar1.Value = p1.hp;
             progressBar2.Value = p1.party;
 
+            button1.Image = (Image)(new Bitmap(Image.FromFile("./asset2/pauseI.png"), new Size(57, 57)));
+            button2.Image = (Image)(new Bitmap(Image.FromFile("./asset2/bomb.png"), new Size(57, 57)));
+            button3.Image = (Image)(new Bitmap(Image.FromFile("./asset2/heal.png"), new Size(70, 70)));
+            button4.Image = (Image)(new Bitmap(Image.FromFile("./asset2/Hp.png"), new Size(57, 57)));
+            button5.Image = (Image)(new Bitmap(Image.FromFile("./asset2/gold.png"), new Size(70, 70)));
+            button6.Image = (Image)(new Bitmap(Image.FromFile("./asset2/box.png"), new Size(75, 75)));
+
             r = new Random();
             assets = new Asset();
             arrZombie = new List<Zombie>();
