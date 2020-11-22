@@ -12,14 +12,24 @@ namespace TyperZombies
 {
     public partial class Cheat : Form
     {
-        public Cheat()
+        public Player p1;
+        public Cheat(Player p)
         {
             InitializeComponent();
+            p1 = p;
         }
 
         private void Cheat_Load(object sender, EventArgs e)
         {
             button1.Image = (Image)(new Bitmap(Image.FromFile("./asset2/back.png"), new Size(120, 45)));
+            
+            hp.Text = "Current HP : "+p1.hp;
+            maxhp.Text = "Max HP : " + p1.maxhp;
+            gold.Text = "Gold : " + p1.gold;
+            bomb.Text = "Bomb : " + p1.bomb;
+            heal.Text = "Massive Heal : " +p1.heal;
+            sgold.Text = "Sack of Gold : " +p1.sog;
+            aBox.Text = "Angel's Box : " +p1.aBox;
         }
 
         private void button1_Click(object sender, EventArgs e)

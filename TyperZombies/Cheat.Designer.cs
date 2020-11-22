@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.button1 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.hp = new System.Windows.Forms.Label();
+            this.maxhp = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.gold = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -53,10 +53,10 @@
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
+            this.bomb = new System.Windows.Forms.Label();
+            this.heal = new System.Windows.Forms.Label();
+            this.sgold = new System.Windows.Forms.Label();
+            this.aBox = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
@@ -68,29 +68,29 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // label1
+            // hp
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Comic Sans MS", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(392, 160);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(297, 46);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "Current HP : 1500";
+            this.hp.AutoSize = true;
+            this.hp.BackColor = System.Drawing.Color.Transparent;
+            this.hp.Font = new System.Drawing.Font("Comic Sans MS", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hp.ForeColor = System.Drawing.Color.White;
+            this.hp.Location = new System.Drawing.Point(392, 160);
+            this.hp.Name = "hp";
+            this.hp.Size = new System.Drawing.Size(297, 46);
+            this.hp.TabIndex = 11;
+            this.hp.Text = "Current HP : 1500";
             // 
-            // label2
+            // maxhp
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Comic Sans MS", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(448, 218);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(241, 46);
-            this.label2.TabIndex = 12;
-            this.label2.Text = "Max HP : 1500";
+            this.maxhp.AutoSize = true;
+            this.maxhp.BackColor = System.Drawing.Color.Transparent;
+            this.maxhp.Font = new System.Drawing.Font("Comic Sans MS", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maxhp.ForeColor = System.Drawing.Color.White;
+            this.maxhp.Location = new System.Drawing.Point(448, 218);
+            this.maxhp.Name = "maxhp";
+            this.maxhp.Size = new System.Drawing.Size(241, 46);
+            this.maxhp.TabIndex = 12;
+            this.maxhp.Text = "Max HP : 1500";
             // 
             // label3
             // 
@@ -104,17 +104,17 @@
             this.label3.TabIndex = 13;
             this.label3.Text = "+";
             // 
-            // label4
+            // gold
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Comic Sans MS", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(500, 278);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(137, 46);
-            this.label4.TabIndex = 14;
-            this.label4.Text = "Gold : 0";
+            this.gold.AutoSize = true;
+            this.gold.BackColor = System.Drawing.Color.Transparent;
+            this.gold.Font = new System.Drawing.Font("Comic Sans MS", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gold.ForeColor = System.Drawing.Color.White;
+            this.gold.Location = new System.Drawing.Point(500, 278);
+            this.gold.Name = "gold";
+            this.gold.Size = new System.Drawing.Size(137, 46);
+            this.gold.TabIndex = 14;
+            this.gold.Text = "Gold : 0";
             // 
             // label5
             // 
@@ -328,63 +328,63 @@
             this.label11.TabIndex = 37;
             this.label11.Text = "+";
             // 
-            // label12
+            // bomb
             // 
-            this.label12.AutoSize = true;
-            this.label12.BackColor = System.Drawing.Color.Transparent;
-            this.label12.Font = new System.Drawing.Font("Comic Sans MS", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(483, 334);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(154, 46);
-            this.label12.TabIndex = 43;
-            this.label12.Text = "Bomb : 0";
+            this.bomb.AutoSize = true;
+            this.bomb.BackColor = System.Drawing.Color.Transparent;
+            this.bomb.Font = new System.Drawing.Font("Comic Sans MS", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bomb.ForeColor = System.Drawing.Color.White;
+            this.bomb.Location = new System.Drawing.Point(483, 334);
+            this.bomb.Name = "bomb";
+            this.bomb.Size = new System.Drawing.Size(154, 46);
+            this.bomb.TabIndex = 43;
+            this.bomb.Text = "Bomb : 0";
             // 
-            // label13
+            // heal
             // 
-            this.label13.AutoSize = true;
-            this.label13.BackColor = System.Drawing.Color.Transparent;
-            this.label13.Font = new System.Drawing.Font("Comic Sans MS", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(368, 392);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(269, 46);
-            this.label13.TabIndex = 44;
-            this.label13.Text = "Massive Heal : 0";
+            this.heal.AutoSize = true;
+            this.heal.BackColor = System.Drawing.Color.Transparent;
+            this.heal.Font = new System.Drawing.Font("Comic Sans MS", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.heal.ForeColor = System.Drawing.Color.White;
+            this.heal.Location = new System.Drawing.Point(368, 392);
+            this.heal.Name = "heal";
+            this.heal.Size = new System.Drawing.Size(269, 46);
+            this.heal.TabIndex = 44;
+            this.heal.Text = "Massive Heal : 0";
             // 
-            // label15
+            // sgold
             // 
-            this.label15.AutoSize = true;
-            this.label15.BackColor = System.Drawing.Color.Transparent;
-            this.label15.Font = new System.Drawing.Font("Comic Sans MS", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(371, 447);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(266, 46);
-            this.label15.TabIndex = 46;
-            this.label15.Text = "Sack of Gold : 0";
+            this.sgold.AutoSize = true;
+            this.sgold.BackColor = System.Drawing.Color.Transparent;
+            this.sgold.Font = new System.Drawing.Font("Comic Sans MS", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sgold.ForeColor = System.Drawing.Color.White;
+            this.sgold.Location = new System.Drawing.Point(371, 447);
+            this.sgold.Name = "sgold";
+            this.sgold.Size = new System.Drawing.Size(266, 46);
+            this.sgold.TabIndex = 46;
+            this.sgold.Text = "Sack of Gold : 0";
             // 
-            // label16
+            // aBox
             // 
-            this.label16.AutoSize = true;
-            this.label16.BackColor = System.Drawing.Color.Transparent;
-            this.label16.Font = new System.Drawing.Font("Comic Sans MS", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.White;
-            this.label16.Location = new System.Drawing.Point(385, 508);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(252, 46);
-            this.label16.TabIndex = 47;
-            this.label16.Text = "Angel\'s Box : 0";
+            this.aBox.AutoSize = true;
+            this.aBox.BackColor = System.Drawing.Color.Transparent;
+            this.aBox.Font = new System.Drawing.Font("Comic Sans MS", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.aBox.ForeColor = System.Drawing.Color.White;
+            this.aBox.Location = new System.Drawing.Point(385, 508);
+            this.aBox.Name = "aBox";
+            this.aBox.Size = new System.Drawing.Size(252, 46);
+            this.aBox.TabIndex = 47;
+            this.aBox.Text = "Angel\'s Box : 0";
             // 
             // Cheat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1490, 739);
-            this.Controls.Add(this.label16);
-            this.Controls.Add(this.label15);
-            this.Controls.Add(this.label13);
-            this.Controls.Add(this.label12);
+            this.Controls.Add(this.aBox);
+            this.Controls.Add(this.sgold);
+            this.Controls.Add(this.heal);
+            this.Controls.Add(this.bomb);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.button9);
             this.Controls.Add(this.textBox7);
@@ -405,10 +405,10 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.gold);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.maxhp);
+            this.Controls.Add(this.hp);
             this.Controls.Add(this.button1);
             this.Name = "Cheat";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -423,10 +423,10 @@
         #endregion
 
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label hp;
+        private System.Windows.Forms.Label maxhp;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label gold;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBox1;
@@ -447,9 +447,9 @@
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label bomb;
+        private System.Windows.Forms.Label heal;
+        private System.Windows.Forms.Label sgold;
+        private System.Windows.Forms.Label aBox;
     }
 }

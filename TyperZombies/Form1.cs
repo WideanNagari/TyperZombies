@@ -114,10 +114,13 @@ namespace TyperZombies
             {
                 timer1.Stop();
                 timer2.Stop();
-                Cheat c = new Cheat();
+                Cheat c = new Cheat(p1);
                 this.Hide();
                 c.ShowDialog();
                 this.Show();
+                p1 = c.p1;
+                label6.Text = "Tekan tombol play untuk melanjutkan!";
+                label6.Visible = true;
                 textBox1.Text = "";
             }
         }
