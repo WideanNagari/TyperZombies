@@ -35,6 +35,7 @@ namespace TyperZombies
             progressBar1.Maximum = p1.maxhp;
             progressBar1.Value = p1.hp;
             progressBar2.Value = p1.party;
+            cekValid();
 
             button1.Image = (Image)(new Bitmap(Image.FromFile("./asset2/pauseI.png"), new Size(57, 57)));
             button2.Image = (Image)(new Bitmap(Image.FromFile("./asset2/bomb.png"), new Size(57, 57)));
@@ -122,6 +123,15 @@ namespace TyperZombies
                 label6.Text = "Tekan tombol play untuk melanjutkan!";
                 label6.Visible = true;
                 textBox1.Text = "";
+
+                label1.Text = p1.hp + "/" + p1.maxhp;
+                label2.Text = "Score: " + p1.score;
+                label3.Text = "Gold: " + p1.gold;
+                label4.Text = "Level: " + p1.level;
+                progressBar1.Maximum = p1.maxhp;
+                progressBar1.Value = p1.hp;
+
+                cekValid();
             }
         }
 
@@ -294,6 +304,14 @@ namespace TyperZombies
                 label6.Visible = true;
                 this.Show();
                 p1 = p.p1;
+
+                label1.Text = p1.hp + "/" + p1.maxhp;
+                label2.Text = "Score: " + p1.score;
+                label3.Text = "Gold: " + p1.gold;
+                label4.Text = "Level: " + p1.level;
+                progressBar1.Maximum = p1.maxhp;
+                progressBar1.Value = p1.hp;
+                cekValid();
             }
         }
 
@@ -302,6 +320,42 @@ namespace TyperZombies
             label6.Visible = false;
             timer1.Start();
             timer2.Start();
+        }
+
+        private void cekValid()
+        {
+            if (p1.bomb > 0) button2.Enabled = true;
+            else button2.Enabled = false;
+            if (p1.heal>0) button3.Enabled = true;
+            else button3.Enabled = false;
+            if (p1.sog>0) button4.Enabled = true;
+            else button4.Enabled = false;
+            if (p1.aBox>0) button5.Enabled = true;
+            else button5.Enabled = false;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            p1.bomb -= 1;
+            cekValid();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            p1.heal -= 1;
+            cekValid();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            p1.sog -= 1;
+            cekValid();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            p1.aBox -= 1;
+            cekValid();
         }
     }
 }

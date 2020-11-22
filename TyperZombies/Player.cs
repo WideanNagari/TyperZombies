@@ -49,6 +49,11 @@ namespace TyperZombies
             this.maxhp = 1500;
             this.kill = 0;
             this.party = 0;
+            this.bomb = 0;
+            this.heal = 0;
+            this.hpBooster = 1;
+            this.sog = 0;
+            this.aBox = 0;
         }
     }
 }

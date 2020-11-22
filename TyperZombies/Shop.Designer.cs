@@ -50,6 +50,7 @@
             this.button10 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.aBox = new System.Windows.Forms.Label();
+            this.darah = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
@@ -117,8 +118,9 @@
             this.button2.Size = new System.Drawing.Size(177, 46);
             this.button2.TabIndex = 13;
             this.button2.TabStop = false;
-            this.button2.Text = "1200 Gold";
+            this.button2.Text = "1500 Gold";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -130,6 +132,7 @@
             this.button3.TabStop = false;
             this.button3.Text = "500 Gold";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // label7
             // 
@@ -151,8 +154,9 @@
             this.button4.Size = new System.Drawing.Size(177, 46);
             this.button4.TabIndex = 23;
             this.button4.TabStop = false;
-            this.button4.Text = "500 Gold";
+            this.button4.Text = "350 Gold";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // heal
             // 
@@ -282,8 +286,9 @@
             this.button10.Size = new System.Drawing.Size(177, 46);
             this.button10.TabIndex = 32;
             this.button10.TabStop = false;
-            this.button10.Text = "500 Gold";
+            this.button10.Text = "1200 Gold";
             this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // button11
             // 
@@ -293,8 +298,9 @@
             this.button11.Size = new System.Drawing.Size(177, 46);
             this.button11.TabIndex = 33;
             this.button11.TabStop = false;
-            this.button11.Text = "500 Gold";
+            this.button11.Text = "2500 Gold";
             this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
             // aBox
             // 
@@ -308,11 +314,24 @@
             this.aBox.TabIndex = 34;
             this.aBox.Text = "Owned: 0";
             // 
+            // darah
+            // 
+            this.darah.AutoSize = true;
+            this.darah.BackColor = System.Drawing.Color.Transparent;
+            this.darah.Font = new System.Drawing.Font("Comic Sans MS", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.darah.ForeColor = System.Drawing.Color.White;
+            this.darah.Location = new System.Drawing.Point(1130, 343);
+            this.darah.Name = "darah";
+            this.darah.Size = new System.Drawing.Size(186, 46);
+            this.darah.TabIndex = 35;
+            this.darah.Text = "1500/1500";
+            // 
             // Shop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1490, 739);
+            this.Controls.Add(this.darah);
             this.Controls.Add(this.aBox);
             this.Controls.Add(this.button11);
             this.Controls.Add(this.button10);
@@ -369,5 +388,6 @@
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Label aBox;
+        private System.Windows.Forms.Label darah;
     }
 }

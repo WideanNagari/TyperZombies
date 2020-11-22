@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace TyperZombies
 {
@@ -57,6 +58,73 @@ namespace TyperZombies
         {
             end = true;
             this.Close();
+        }
+
+        XmlDocument doc;
+        private void save(Player p)
+        {
+            doc = new XmlDocument();
+            XmlNode root = doc.CreateElement("ListPlayer");
+            doc.AppendChild(root);
+
+            XmlNode child = doc.CreateElement("player");
+            root.AppendChild(child);
+            child.InnerText = p.nama;
+
+            XmlAttribute attr = doc.CreateAttribute("level");
+            attr.Value = p.level + "";
+            child.Attributes.Append(attr);
+
+            attr = doc.CreateAttribute("score");
+            attr.Value = p.score + "";
+            child.Attributes.Append(attr);
+
+            attr = doc.CreateAttribute("gold");
+            attr.Value = p.gold + "";
+            child.Attributes.Append(attr);
+
+            attr = doc.CreateAttribute("hp");
+            attr.Value = p.hp + "";
+            child.Attributes.Append(attr);
+
+            attr = doc.CreateAttribute("maxhp");
+            attr.Value = p.maxhp + "";
+            child.Attributes.Append(attr);
+
+            attr = doc.CreateAttribute("kill");
+            attr.Value = p.kill + "";
+            child.Attributes.Append(attr);
+
+            attr = doc.CreateAttribute("party");
+            attr.Value = p.party + "";
+            child.Attributes.Append(attr);
+
+            attr = doc.CreateAttribute("bomb");
+            attr.Value = p.bomb + "";
+            child.Attributes.Append(attr);
+
+            attr = doc.CreateAttribute("heal");
+            attr.Value = p.heal + "";
+            child.Attributes.Append(attr);
+
+            attr = doc.CreateAttribute("hpBooster");
+            attr.Value = p.hpBooster + "";
+            child.Attributes.Append(attr);
+
+            attr = doc.CreateAttribute("sog");
+            attr.Value = p.sog + "";
+            child.Attributes.Append(attr);
+
+            attr = doc.CreateAttribute("aBox");
+            attr.Value = p.aBox + "";
+            child.Attributes.Append(attr);
+
+            doc.Save(p.nama + ".xml");
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            save(p1);
         }
     }
 }

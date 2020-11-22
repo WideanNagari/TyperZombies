@@ -56,6 +56,9 @@ namespace TyperZombies
                 try
                 {
                     int jumlah = Convert.ToInt32(textBox1.Text);
+                    p1.hp += jumlah;
+                    if (p1.hp > p1.maxhp) p1.hp = p1.maxhp;
+                    hp.Text = "Current HP : " + p1.hp;
                 }
                 catch (Exception) { MessageBox.Show("Mohon mengisi dengan angka saja!"); }
                 textBox1.Text = "";
@@ -70,6 +73,8 @@ namespace TyperZombies
                 try
                 {
                     int jumlah = Convert.ToInt32(textBox2.Text);
+                    p1.maxhp += jumlah;
+                    maxhp.Text = "Max HP : " + p1.maxhp;
                 }
                 catch (Exception) { MessageBox.Show("Mohon mengisi dengan angka saja!"); }
                 textBox2.Text = "";
@@ -84,6 +89,8 @@ namespace TyperZombies
                 try
                 {
                     int jumlah = Convert.ToInt32(textBox3.Text);
+                    p1.gold += jumlah;
+                    gold.Text = "Gold : " + p1.gold;
                 }
                 catch (Exception) { MessageBox.Show("Mohon mengisi dengan angka saja!"); }
                 textBox3.Text = "";
@@ -98,6 +105,8 @@ namespace TyperZombies
                 try
                 {
                     int jumlah = Convert.ToInt32(textBox4.Text);
+                    p1.bomb += jumlah;
+                    bomb.Text = "Bomb : " + p1.bomb;
                 }
                 catch (Exception) { MessageBox.Show("Mohon mengisi dengan angka saja!"); }
                 textBox4.Text = "";
@@ -112,6 +121,8 @@ namespace TyperZombies
                 try
                 {
                     int jumlah = Convert.ToInt32(textBox5.Text);
+                    p1.heal += jumlah;
+                    heal.Text = "Massive Heal : " + p1.heal;
                 }
                 catch (Exception) { MessageBox.Show("Mohon mengisi dengan angka saja!"); }
                 textBox5.Text = "";
@@ -126,6 +137,8 @@ namespace TyperZombies
                 try
                 {
                     int jumlah = Convert.ToInt32(textBox7.Text);
+                    p1.sog += jumlah;
+                    sgold.Text = "Sack of Gold : " + p1.sog;
                 }
                 catch (Exception) { MessageBox.Show("Mohon mengisi dengan angka saja!"); }
                 textBox7.Text = "";
@@ -140,6 +153,8 @@ namespace TyperZombies
                 try
                 {
                     int jumlah = Convert.ToInt32(textBox8.Text);
+                    p1.aBox += jumlah;
+                    aBox.Text = "Angel's Box : " + p1.aBox;
                 }
                 catch (Exception) { MessageBox.Show("Mohon mengisi dengan angka saja!"); }
                 textBox8.Text = "";

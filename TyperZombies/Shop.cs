@@ -27,6 +27,8 @@ namespace TyperZombies
             sgold.Text = "Owned : "+p1.sog;
             heal.Text = "Owned : "+p1.heal;
             bom.Text = "Owned : "+p1.bomb;
+            darah.Text = p1.hp + "/" + p1.maxhp;
+            button4.Text = (p1.hpBooster * 350) + " Gold";
         }
 
         private void Shop_Paint(object sender, PaintEventArgs e)
@@ -39,7 +41,6 @@ namespace TyperZombies
             g.DrawImage(Image.FromFile("./asset2/hp.png"), 460, 260, 75, 75);
             g.DrawImage(Image.FromFile("./asset2/gold.png"), 460, 340, 85, 85);
             g.DrawImage(Image.FromFile("./asset2/box.png"), 460, 430, 85, 85);
-
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -70,6 +71,69 @@ namespace TyperZombies
         private void button9_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Melemahkan zombie untuk 2 round kedepan (Hp semua zombie menjadi 1)","Effect");
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (p1.gold>=1500)
+            {
+                p1.gold -= 1500;
+                p1.bomb += 1;
+                gold.Text = p1.gold + "";
+                bom.Text = "Owned : " + p1.bomb;
+            }
+            else MessageBox.Show("Gold tidak cukup!", "Gagal membeli item");
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (p1.gold >= 500)
+            {
+                p1.gold -= 500;
+                p1.heal += 1;
+                gold.Text = p1.gold + "";
+                heal.Text = "Owned : " + p1.heal;
+            }
+            else MessageBox.Show("Gold tidak cukup!", "Gagal membeli item");
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (p1.gold >= (p1.hpBooster*350))
+            {
+                p1.gold -= (p1.hpBooster * 350);
+                p1.hpBooster += 1;
+                p1.hp += 500;
+                p1.maxhp += 500;
+                darah.Text = p1.hp + "/" + p1.maxhp;
+                gold.Text = p1.gold + "";
+                button4.Text = (p1.hpBooster * 350) + " Gold";
+            }
+            else MessageBox.Show("Gold tidak cukup!", "Gagal membeli item");
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            if (p1.gold >= 1200)
+            {
+                p1.gold -= 1200;
+                p1.sog += 1;
+                gold.Text = p1.gold + "";
+                sgold.Text = "Owned : " + p1.sog;
+            }
+            else MessageBox.Show("Gold tidak cukup!", "Gagal membeli item");
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            if (p1.gold >= 2500)
+            {
+                p1.gold -= 2500;
+                p1.aBox += 1;
+                gold.Text = p1.gold + "";
+                aBox.Text = "Owned : " + p1.aBox;
+            }
+            else MessageBox.Show("Gold tidak cukup!", "Gagal membeli item");
         }
     }
 }
