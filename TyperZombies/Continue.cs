@@ -14,27 +14,17 @@ namespace TyperZombies
 {
     public partial class Continue : Form
     {
-        public Continue()
+        List<string> arrP;
+        public Continue(List<string> arrp)
         {
             InitializeComponent();
+            arrP = arrp;
         }
-        List<string> arrP;
         Player p;
         XmlDocument doc;
-        string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=" + AppDomain.CurrentDomain.BaseDirectory + "db_proyek.mdf;Integrated Security=True;Connect Timeout=30";
         private void Continue_Load(object sender, EventArgs e)
         {
             button1.Image = (Image)(new Bitmap(Image.FromFile("./asset2/back.png"), new Size(180, 65)));
-            arrP = new List<string>();
-            SqlConnection conn = new SqlConnection(connectionString);
-            conn.Open();
-            SqlCommand cmd = new SqlCommand("Select * From player", conn);
-            SqlDataReader reader = cmd.ExecuteReader();
-            while (reader.Read())
-            {
-                arrP.Add(reader.GetString(1) + " " + reader.GetString(2));
-            }
-            conn.Close();
         }
 
         private void Continue_Paint(object sender, PaintEventArgs e)
@@ -76,9 +66,12 @@ namespace TyperZombies
                 {
                     if (textBox2.Text == pass)
                     {
-                        MessageBox.Show("ada");
                         p = new Player(textBox1.Text);
                         load(p);
+                        Form1 f = new Form1(p);
+                        this.Hide();
+                        f.ShowDialog();
+                        this.Close();
                     }
                     else MessageBox.Show("Password salah!");
                 }

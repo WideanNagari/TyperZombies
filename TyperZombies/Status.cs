@@ -12,14 +12,22 @@ namespace TyperZombies
 {
     public partial class Status : Form
     {
-        public Status()
+        public Player p1;
+        public Status(Player p)
         {
             InitializeComponent();
+            p1 = p;
         }
 
         private void Status_Load(object sender, EventArgs e)
         {
             button1.Image = (Image)(new Bitmap(Image.FromFile("./asset2/back.png"), new Size(120, 45)));
+            nama.Text = p1.nama;
+            level.Text = p1.level+"";
+            hp.Text = p1.hp + "/" + p1.maxhp;
+            skor.Text = p1.score + "";
+            gold.Text = p1.gold + "";
+            count.Text = p1.kill + "";
         }
 
         private void Status_Paint(object sender, PaintEventArgs e)

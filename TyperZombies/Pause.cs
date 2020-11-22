@@ -12,14 +12,16 @@ namespace TyperZombies
 {
     public partial class Pause : Form
     {
-        public Pause()
+        public Player p1;
+        public Pause(Player p)
         {
             InitializeComponent();
+            p1 = p;
         }
-        
+        public bool end;
         private void Pause_Load(object sender, EventArgs e)
         {
-
+            end = false;
         }
 
         private void Pause_Paint(object sender, PaintEventArgs e)
@@ -36,7 +38,7 @@ namespace TyperZombies
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Status s = new Status();
+            Status s = new Status(p1);
             this.Hide();
             s.ShowDialog();
             this.Show();
@@ -44,10 +46,17 @@ namespace TyperZombies
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Shop s = new Shop();
+            Shop s = new Shop(p1);
             this.Hide();
             s.ShowDialog();
             this.Show();
+            p1 = s.p1;
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            end = true;
+            this.Close();
         }
     }
 }

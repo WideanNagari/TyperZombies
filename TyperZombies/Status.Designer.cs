@@ -60,9 +60,8 @@
             this.nama.ForeColor = System.Drawing.Color.White;
             this.nama.Location = new System.Drawing.Point(755, 195);
             this.nama.Name = "nama";
-            this.nama.Size = new System.Drawing.Size(135, 46);
+            this.nama.Size = new System.Drawing.Size(0, 46);
             this.nama.TabIndex = 6;
-            this.nama.Text = "Widean";
             // 
             // label1
             // 
@@ -144,9 +143,8 @@
             this.level.ForeColor = System.Drawing.Color.White;
             this.level.Location = new System.Drawing.Point(755, 260);
             this.level.Name = "level";
-            this.level.Size = new System.Drawing.Size(35, 46);
+            this.level.Size = new System.Drawing.Size(0, 46);
             this.level.TabIndex = 13;
-            this.level.Text = "1";
             // 
             // hp
             // 
@@ -156,9 +154,8 @@
             this.hp.ForeColor = System.Drawing.Color.White;
             this.hp.Location = new System.Drawing.Point(755, 326);
             this.hp.Name = "hp";
-            this.hp.Size = new System.Drawing.Size(186, 46);
+            this.hp.Size = new System.Drawing.Size(0, 46);
             this.hp.TabIndex = 14;
-            this.hp.Text = "1500/1500";
             // 
             // skor
             // 
@@ -168,9 +165,8 @@
             this.skor.ForeColor = System.Drawing.Color.White;
             this.skor.Location = new System.Drawing.Point(755, 383);
             this.skor.Name = "skor";
-            this.skor.Size = new System.Drawing.Size(40, 46);
+            this.skor.Size = new System.Drawing.Size(0, 46);
             this.skor.TabIndex = 15;
-            this.skor.Text = "0";
             // 
             // gold
             // 
@@ -180,9 +176,8 @@
             this.gold.ForeColor = System.Drawing.Color.White;
             this.gold.Location = new System.Drawing.Point(755, 445);
             this.gold.Name = "gold";
-            this.gold.Size = new System.Drawing.Size(40, 46);
+            this.gold.Size = new System.Drawing.Size(0, 46);
             this.gold.TabIndex = 16;
-            this.gold.Text = "0";
             // 
             // count
             // 
@@ -192,9 +187,8 @@
             this.count.ForeColor = System.Drawing.Color.White;
             this.count.Location = new System.Drawing.Point(755, 505);
             this.count.Name = "count";
-            this.count.Size = new System.Drawing.Size(40, 46);
+            this.count.Size = new System.Drawing.Size(0, 46);
             this.count.TabIndex = 17;
-            this.count.Text = "0";
             // 
             // Status
             // 

@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace TyperZombies
 {
@@ -16,7 +18,8 @@ namespace TyperZombies
         {
             InitializeComponent();
         }
-
+        List<string> arrP;
+        string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=" + AppDomain.CurrentDomain.BaseDirectory + "db_proyek.mdf;Integrated Security=True;Connect Timeout=30";
         private void MainMenu_Load(object sender, EventArgs e)
         {
             button1.Image = (Image)(new Bitmap(Image.FromFile("./asset2/new-game.png"), new Size(180, 50)));
@@ -24,6 +27,24 @@ namespace TyperZombies
             button3.Image = (Image)(new Bitmap(Image.FromFile("./asset2/high-score.png"), new Size(180, 50)));
             button4.Image = (Image)(new Bitmap(Image.FromFile("./asset2/about.png"), new Size(130, 40)));
             button5.Image = (Image)(new Bitmap(Image.FromFile("./asset2/exit.png"), new Size(110, 42)));
+
+            //SqlConnection conn = new SqlConnection(connectionString);
+            //conn.Open();
+            //string query = $"Delete from player";
+            //SqlCommand cmd = new SqlCommand(query, conn);
+            //cmd.ExecuteNonQuery();
+            //conn.Close();
+
+            arrP = new List<string>();
+            SqlConnection conn = new SqlConnection(connectionString);
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("Select * From player", conn);
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                arrP.Add(reader.GetString(1) + " " + reader.GetString(2));
+            }
+            conn.Close();
         }
 
         private void MainMenu_Paint(object sender, PaintEventArgs e)
@@ -55,15 +76,25 @@ namespace TyperZombies
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Newgame n = new Newgame();
+            Newgame n = new Newgame(arrP);
             this.Hide();
             n.ShowDialog();
             this.Show();
+            arrP = new List<string>();
+            SqlConnection conn = new SqlConnection(connectionString);
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("Select * From player", conn);
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                arrP.Add(reader.GetString(1) + " " + reader.GetString(2));
+            }
+            conn.Close();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Continue c = new Continue();
+            Continue c = new Continue(arrP);
             this.Hide();
             c.ShowDialog();
             this.Show();

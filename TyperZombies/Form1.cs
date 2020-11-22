@@ -12,11 +12,12 @@ namespace TyperZombies
 {
     public partial class Form1 : Form
     {
-        public Form1()
+        Player p1;
+        public Form1(Player p)
         {
             InitializeComponent();
+            p1 = p;
         }
-        Player p1;
         Asset assets;
         List<Zombie> arrZombie;
         Random r;
@@ -27,7 +28,6 @@ namespace TyperZombies
         Font f;
         private void Form1_Load(object sender, EventArgs e)
         {
-            p1 = new Player("Widean");
             label1.Text = p1.hp+"/"+ p1.maxhp;
             label2.Text = "Score: "+p1.score;
             label3.Text = "Gold: "+p1.gold;
@@ -41,28 +41,16 @@ namespace TyperZombies
             button3.Image = (Image)(new Bitmap(Image.FromFile("./asset2/heal.png"), new Size(70, 70)));
             button4.Image = (Image)(new Bitmap(Image.FromFile("./asset2/gold.png"), new Size(70, 70)));
             button5.Image = (Image)(new Bitmap(Image.FromFile("./asset2/box.png"), new Size(70, 70)));
+            button6.Image = (Image)(new Bitmap(Image.FromFile("./asset2/play.png"), new Size(57, 57)));
 
+            textBox1.TextAlign = HorizontalAlignment.Center;
             r = new Random();
             assets = new Asset();
             arrZombie = new List<Zombie>();
             fontext2 = new SolidBrush(Color.Yellow);
             fontext = new SolidBrush(Color.LightCyan);
             f = new Font("Comic Sans ms", 16);
-            int jumlah = r.Next(1, 3);
-            for (int i = 0; i < jumlah; i++)
-            {
-                int jenis = r.Next(0, 4);
-                int y = r.Next(50, 341);
-                string rKata = assets.randomKata();
-                if (jenis == 0) arrZombie.Add(new Jester(0, y, assets, rKata, assets.jester[0]));
-                else if (jenis == 1) arrZombie.Add(new George(0, y, assets, rKata, assets.george[0]));
-                else if (jenis == 2) arrZombie.Add(new AGeorge(0, y, assets, rKata, assets.ageorge[0]));
-                else if (jenis == 3) arrZombie.Add(new Beatrix(0, y, assets, rKata, assets.beatrix[0]));
-            }
             ctrSpawn = 0;
-            textBox1.TextAlign = HorizontalAlignment.Center;
-            timer1.Start();
-            timer2.Start();
         }
 
         private void Form1_Paint(object sender, PaintEventArgs e)
@@ -130,8 +118,6 @@ namespace TyperZombies
                 this.Hide();
                 c.ShowDialog();
                 this.Show();
-                timer1.Start();
-                timer2.Start();
                 textBox1.Text = "";
             }
         }
@@ -293,9 +279,24 @@ namespace TyperZombies
             this.Hide();
             timer1.Stop();
             timer2.Stop();
-            Pause p = new Pause();
+            Pause p = new Pause(p1);
             p.ShowDialog();
-            this.Show();
+            if (p.end)
+            {
+                this.Close();
+            }
+            else
+            {
+                label6.Text = "Tekan tombol play untuk melanjutkan!";
+                label6.Visible = true;
+                this.Show();
+                p1 = p.p1;
+            }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            label6.Visible = false;
             timer1.Start();
             timer2.Start();
         }

@@ -12,14 +12,21 @@ namespace TyperZombies
 {
     public partial class Shop : Form
     {
-        public Shop()
+        public Player p1;
+        public Shop(Player p)
         {
             InitializeComponent();
+            p1 = p;
         }
 
         private void Shop_Load(object sender, EventArgs e)
         {
             button1.Image = (Image)(new Bitmap(Image.FromFile("./asset2/back.png"), new Size(120, 45)));
+            gold.Text = p1.gold + "";
+            aBox.Text = "Owned : "+p1.aBox;
+            sgold.Text = "Owned : "+p1.sog;
+            heal.Text = "Owned : "+p1.heal;
+            bom.Text = "Owned : "+p1.bomb;
         }
 
         private void Shop_Paint(object sender, PaintEventArgs e)

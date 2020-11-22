@@ -14,32 +14,19 @@ namespace TyperZombies
 {
     public partial class Newgame : Form
     {
-        public Newgame()
+        List<string> arrP;
+        public Newgame(List<string> arrp)
         {
             InitializeComponent();
+            arrP = arrp;
         }
-        string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=" + AppDomain.CurrentDomain.BaseDirectory + "db_proyek.mdf;Integrated Security=True;Connect Timeout=30";
-        List<string> arrP;
+        
         Player p;
         XmlDocument doc;
+        string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=" + AppDomain.CurrentDomain.BaseDirectory + "db_proyek.mdf;Integrated Security=True;Connect Timeout=30";
         private void Newgame_Load(object sender, EventArgs e)
         {
-            arrP = new List<string>();
             button1.Image = (Image)(new Bitmap(Image.FromFile("./asset2/back.png"), new Size(180, 65)));
-            SqlConnection conn = new SqlConnection(connectionString);
-            //conn.Open();
-            //string query = $"Delete from player";
-            //SqlCommand cmd = new SqlCommand(query, conn);
-            //cmd.ExecuteNonQuery();
-            //conn.Close();
-            conn.Open();
-            SqlCommand cmd = new SqlCommand("Select * From player", conn);
-            SqlDataReader reader = cmd.ExecuteReader();
-            while (reader.Read())
-            {
-                arrP.Add(reader.GetString(1));
-            }
-            conn.Close();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -65,7 +52,8 @@ namespace TyperZombies
                 bool ada = false;
                 foreach (string s in arrP)
                 {
-                    if (s.Equals(textBox1.Text))
+                    string[] arr = s.Split(' ');
+                    if (arr[0].Equals(textBox1.Text))
                     {
                         ada = true;
                     }
@@ -122,6 +110,11 @@ namespace TyperZombies
                     conn.Close();
 
                     save(p);
+
+                    Form1 f = new Form1(p);
+                    this.Hide();
+                    f.ShowDialog();
+                    this.Close();
                 }
             }
         }

@@ -49,7 +49,7 @@
             this.button9 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
+            this.aBox = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
@@ -296,24 +296,24 @@
             this.button11.Text = "500 Gold";
             this.button11.UseVisualStyleBackColor = true;
             // 
-            // label3
+            // aBox
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Comic Sans MS", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(1130, 558);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(162, 46);
-            this.label3.TabIndex = 34;
-            this.label3.Text = "Owned: 0";
+            this.aBox.AutoSize = true;
+            this.aBox.BackColor = System.Drawing.Color.Transparent;
+            this.aBox.Font = new System.Drawing.Font("Comic Sans MS", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.aBox.ForeColor = System.Drawing.Color.White;
+            this.aBox.Location = new System.Drawing.Point(1130, 558);
+            this.aBox.Name = "aBox";
+            this.aBox.Size = new System.Drawing.Size(162, 46);
+            this.aBox.TabIndex = 34;
+            this.aBox.Text = "Owned: 0";
             // 
             // Shop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1490, 739);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.aBox);
             this.Controls.Add(this.button11);
             this.Controls.Add(this.button10);
             this.Controls.Add(this.button9);
@@ -368,6 +368,6 @@
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label aBox;
     }
 }
