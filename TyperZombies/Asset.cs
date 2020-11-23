@@ -14,6 +14,7 @@ namespace TyperZombies
         public List<Image> george { get; set; }
         public List<Image> ageorge { get; set; }
         public List<Image> beatrix { get; set; }
+        public List<Image> bomb { get; set; }
         public List<string> bankKata { get; set; }
         Random r;
         public Asset()
@@ -85,6 +86,21 @@ namespace TyperZombies
             beatrix.Add(Image.FromFile("./Zombie3/Dead6.png"));
             beatrix.Add(Image.FromFile("./Zombie3/Dead7.png"));
             beatrix.Add(Image.FromFile("./Zombie3/Dead8.png"));
+
+            bomb = new List<Image>();
+            bomb.Add(Image.FromFile("./Bomb/bomb1.png"));
+            bomb.Add(Image.FromFile("./Bomb/bomb2.png"));
+            bomb.Add(Image.FromFile("./Bomb/bomb3.png"));
+            bomb.Add(Image.FromFile("./Bomb/bomb4.png"));
+            bomb.Add(Image.FromFile("./Bomb/bomb5.png"));
+            bomb.Add(Image.FromFile("./Bomb/bomb6.png"));
+            bomb.Add(Image.FromFile("./Bomb/bomb7.png"));
+            bomb.Add(Image.FromFile("./Bomb/bomb8.png"));
+            bomb.Add(Image.FromFile("./Bomb/bomb9.png"));
+            bomb.Add(Image.FromFile("./Bomb/bomb10.png"));
+            bomb.Add(Image.FromFile("./Bomb/bomb11.png"));
+            bomb.Add(Image.FromFile("./Bomb/bomb12.png"));
+            bomb.Add(Image.FromFile("./Bomb/bomb13.png"));
 
             bankKata = new List<string>();
             StreamReader sr = new StreamReader("bankKata.txt");

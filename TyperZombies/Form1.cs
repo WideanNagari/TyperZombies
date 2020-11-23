@@ -22,10 +22,12 @@ namespace TyperZombies
         List<Zombie> arrZombie;
         Random r;
         int ctrSpawn;
-        
+        Image imgExplode;
+        int ctrExplode, ctrLabel;
         Brush fontext;
         Brush fontext2;
         Font f;
+        bool bomb2;
         private void Form1_Load(object sender, EventArgs e)
         {
             label1.Text = p1.hp+"/"+ p1.maxhp;
@@ -35,7 +37,6 @@ namespace TyperZombies
             progressBar1.Maximum = p1.maxhp;
             progressBar1.Value = p1.hp;
             progressBar2.Value = p1.party;
-            cekValid();
 
             button1.Image = (Image)(new Bitmap(Image.FromFile("./asset2/pauseI.png"), new Size(57, 57)));
             button2.Image = (Image)(new Bitmap(Image.FromFile("./asset2/bomb.png"), new Size(57, 57)));
@@ -88,7 +89,10 @@ namespace TyperZombies
                     }
                 } 
             }
-            
+            if (imgExplode!=null)
+            {
+                g.DrawImage(imgExplode, 400, 150, 400, 400);
+            }
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -137,6 +141,19 @@ namespace TyperZombies
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            if (imgExplode!=null)
+            {
+                if (ctrExplode <= 12)
+                {
+                    imgExplode = assets.bomb[ctrExplode];
+                    ctrExplode++;
+                }
+                else
+                {
+                    ctrExplode = 0;
+                    imgExplode = null;
+                }
+            }
             foreach (Zombie z in arrZombie)
             {
                 if (!z.dead)
@@ -149,6 +166,7 @@ namespace TyperZombies
                 if (z is AGeorge) ((AGeorge)z).gantiAnimasi(assets.ageorge);
                 if (z is Beatrix) ((Beatrix)z).gantiAnimasi(assets.beatrix);
             }
+            int d = 0;
             for (int i = arrZombie.Count - 1; i >= 0; i--)
             {
                 if (arrZombie[i].x >= 1000)
@@ -180,17 +198,25 @@ namespace TyperZombies
                             p1.score += arrZombie[i].score;
                             p1.gold += arrZombie[i].gold;
                         }
-                        p1.kill++;
+                        if (p1.efekSog > 0 && !bomb2)
+                        {
+                            p1.efekSog--;
+                            p1.gold += 200;
+                        }
+                        if (!bomb2) p1.kill++;
                         if (p1.kill % 5 == 0 && p1.party == 0)
                         {
                             p1.level++;
+                            p1.efekBox--;
                             p1.gold += 1000;
                             label4.Text = "Level: " + p1.level;
                         }
                         label2.Text = "Score: " + p1.score;
                         label3.Text = "Gold: " + p1.gold;
-
+                        
                         arrZombie.RemoveAt(i);
+
+                        d = 1;
                     }
                 }
                 else
@@ -207,10 +233,16 @@ namespace TyperZombies
                             p1.score += arrZombie[i].score;
                             p1.gold += arrZombie[i].gold;
                         }
-                        p1.kill++;
+                        if (p1.efekSog > 0 && !bomb2)
+                        {
+                            p1.efekSog--;
+                            p1.gold += 200;
+                        }
+                        if (!bomb2) p1.kill++;
                         if (p1.kill%5==0 && p1.party==0)
                         {
                             p1.level++;
+                            p1.efekBox--;
                             p1.gold += 1000;
                             label4.Text = "Level: "+p1.level;
                         }
@@ -218,9 +250,13 @@ namespace TyperZombies
                         label3.Text = "Gold: " + p1.gold;
 
                         arrZombie.RemoveAt(i);
+
+                        d = 1;
                     }
                 }
             }
+            if (p1.efekSog == 0 && p1.sog > 0) button4.Enabled = true;
+            if (bomb2 && d == 1) bomb2 = false;
             if (p1.level % 3 == 0 && p1.party == 0)
             {
                 p1.party = 100;
@@ -236,6 +272,7 @@ namespace TyperZombies
                 if (p1.party==0)
                 {
                     p1.level++;
+                    p1.efekBox--;
                     label4.Text = "Level: "+p1.level;
                     label5.Visible = false;
                 }
@@ -266,6 +303,11 @@ namespace TyperZombies
 
         private void timer2_Tick(object sender, EventArgs e)
         {
+            if (label7.Visible)
+            {
+                if (ctrLabel > 0) ctrLabel--;
+                else label7.Visible = false;
+            }
             int cd = 3;
             if (p1.party>0) cd = 2;
             if (ctrSpawn == cd)
@@ -279,6 +321,8 @@ namespace TyperZombies
                     else if (jenis == 1) arrZombie.Add(new George(0, y, assets, assets.randomKata(), assets.george[0]));
                     else if (jenis == 2) arrZombie.Add(new AGeorge(0, y, assets, assets.randomKata(), assets.ageorge[0]));
                     else if (jenis == 3) arrZombie.Add(new Beatrix(0, y, assets, assets.randomKata(), assets.beatrix[0]));
+
+                    if (p1.efekBox > 0) arrZombie[arrZombie.Count - 1].hp = 1;
                 }
                 ctrSpawn = 0;
             }
@@ -320,6 +364,8 @@ namespace TyperZombies
             label6.Visible = false;
             timer1.Start();
             timer2.Start();
+
+            cekValid();
         }
 
         private void cekValid()
@@ -328,33 +374,71 @@ namespace TyperZombies
             else button2.Enabled = false;
             if (p1.heal>0) button3.Enabled = true;
             else button3.Enabled = false;
-            if (p1.sog>0) button4.Enabled = true;
+            if (p1.sog>0 && p1.efekSog==0) button4.Enabled = true;
             else button4.Enabled = false;
-            if (p1.aBox>0) button5.Enabled = true;
+            if (p1.aBox>0 && p1.efekBox==0) button5.Enabled = true;
             else button5.Enabled = false;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             p1.bomb -= 1;
+            imgExplode = assets.bomb[0];
+            foreach (Zombie z in arrZombie)
+            {
+                z.dead = true;
+            }
             cekValid();
+            label7.Text = "Bomb berhasil dipakai! " + p1.bomb + " Bomb tersisa.";
+            label7.Visible = true;
+            ctrLabel = 2;
+            bomb2 = true;
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            p1.heal -= 1;
-            cekValid();
+            if (p1.hp<p1.maxhp)
+            {
+                p1.heal -= 1;
+                p1.hp += 500;
+                if (p1.hp > p1.maxhp) p1.hp = p1.maxhp;
+                progressBar1.Value = p1.hp;
+                label1.Text = p1.hp + "/" + p1.maxhp;
+                cekValid();
+                label7.Text = "Massive Heal berhasil dipakai! " + p1.heal + " Massive Heal tersisa.";
+                label7.Visible = true;
+                ctrLabel = 2;
+            }
+            else
+            {
+                label7.Text = "HP sudah maksimal! ";
+                label7.Visible = true;
+                ctrLabel = 2;
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             p1.sog -= 1;
+            p1.efekSog = 10;
+            label7.Text = "Sack of Gold berhasil dipakai! " + p1.sog + " Sack of Gold tersisa.";
+            label7.Visible = true;
+            ctrLabel = 2;
             cekValid();
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
             p1.aBox -= 1;
+            p1.efekBox = 2;
+            label7.Text = "Angel Box berhasil dipakai! " + p1.aBox + " Angel Box tersisa.";
+            label7.Visible = true;
+            ctrLabel = 2;
+
+            foreach (Zombie z in arrZombie)
+            {
+                z.hp = 1;
+            }
             cekValid();
         }
     }

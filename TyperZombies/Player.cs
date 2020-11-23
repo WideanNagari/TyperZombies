@@ -21,23 +21,8 @@ namespace TyperZombies
         public int hpBooster { get; set; }
         public int sog { get; set; }
         public int aBox { get; set; }
-
-        public Player(string nama, int level, int score, int gold, int hp, int maxhp, int kill, int party, int bomb, int heal, int hpBooster, int sog, int aBox)
-        {
-            this.nama = nama;
-            this.level = level;
-            this.score = score;
-            this.gold = gold;
-            this.hp = hp;
-            this.maxhp = maxhp;
-            this.kill = kill;
-            this.party = party;
-            this.bomb = bomb;
-            this.heal = heal;
-            this.hpBooster = hpBooster;
-            this.sog = sog;
-            this.aBox = aBox;
-        }
+        public int efekSog { get; set; }
+        public int efekBox { get; set; }
 
         public Player(string nama)
         {
@@ -54,6 +39,8 @@ namespace TyperZombies
             this.hpBooster = 1;
             this.sog = 0;
             this.aBox = 0;
+            this.efekSog = 0;
+            this.efekBox = 0;
         }
     }
 }

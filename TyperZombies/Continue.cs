@@ -96,6 +96,8 @@ namespace TyperZombies
                 p.hpBooster = Convert.ToInt32(item.Attributes["hpBooster"].InnerText);
                 p.sog = Convert.ToInt32(item.Attributes["sog"].InnerText);
                 p.aBox = Convert.ToInt32(item.Attributes["aBox"].InnerText);
+                p.efekSog = Convert.ToInt32(item.Attributes["efekSog"].InnerText);
+                p.efekBox = Convert.ToInt32(item.Attributes["efekBox"].InnerText);
             }
         }
     }

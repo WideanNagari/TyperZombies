@@ -119,6 +119,14 @@ namespace TyperZombies
             attr.Value = p.aBox + "";
             child.Attributes.Append(attr);
 
+            attr = doc.CreateAttribute("efekSog");
+            attr.Value = p.efekSog + "";
+            child.Attributes.Append(attr);
+
+            attr = doc.CreateAttribute("efekBox");
+            attr.Value = p.efekBox + "";
+            child.Attributes.Append(attr);
+
             doc.Save(p.nama + ".xml");
         }
 
