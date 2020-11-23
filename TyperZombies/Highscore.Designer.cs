@@ -51,11 +51,11 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Comic Sans MS", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(77, 161);
+            this.label2.Location = new System.Drawing.Point(70, 253);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(446, 67);
+            this.label2.Size = new System.Drawing.Size(453, 67);
             this.label2.TabIndex = 11;
-            this.label2.Text = "1. Empty - 0 - 0 - 0";
+            this.label2.Text = "2. Empty - 0 - 0 - 0";
             // 
             // label1
             // 
@@ -63,11 +63,11 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Comic Sans MS", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(70, 255);
+            this.label1.Location = new System.Drawing.Point(77, 156);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(453, 67);
+            this.label1.Size = new System.Drawing.Size(446, 67);
             this.label1.TabIndex = 12;
-            this.label1.Text = "2. Empty - 0 - 0 - 0";
+            this.label1.Text = "1. Empty - 0 - 0 - 0";
             // 
             // label3
             // 

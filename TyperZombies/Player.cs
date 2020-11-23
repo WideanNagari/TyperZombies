@@ -23,6 +23,7 @@ namespace TyperZombies
         public int aBox { get; set; }
         public int efekSog { get; set; }
         public int efekBox { get; set; }
+        public string id { get; set; }
 
         public Player(string nama)
         {

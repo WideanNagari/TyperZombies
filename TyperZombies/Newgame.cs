@@ -75,7 +75,6 @@ namespace TyperZombies
                     SqlDataReader readers = cmd.ExecuteReader();
                     while (readers.Read())
                     {
-                        Console.WriteLine("masuk");
                         id = readers.GetString(0);
                     }
                     string jum;
@@ -102,9 +101,16 @@ namespace TyperZombies
                             id = "P" + jum2;
                         }
                     }
+                    p.id = id;
                     conn.Close();
                     conn.Open();
-                    query = $"Insert into player(id,nama,password) values('{id}','{textBox1.Text}','{textBox2.Text}')";
+                    query = $"Insert into player(id,nama,password,status) values('{id}','{textBox1.Text}','{textBox2.Text}','1')";
+                    cmd = new SqlCommand(query, conn);
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+
+                    conn.Open();
+                    query = $"Insert into Highscore(id_player,skor,gold,level,status) values('{id}','0','0','1','1')";
                     cmd = new SqlCommand(query, conn);
                     cmd.ExecuteNonQuery();
                     conn.Close();
@@ -129,8 +135,12 @@ namespace TyperZombies
             root.AppendChild(child);
             child.InnerText = p.nama;
 
-            XmlAttribute attr = doc.CreateAttribute("level");
-            attr.Value = p.level+"";
+            XmlAttribute attr = doc.CreateAttribute("id");
+            attr.Value = p.id;
+            child.Attributes.Append(attr);
+
+            attr = doc.CreateAttribute("level");
+            attr.Value = p.level + "";
             child.Attributes.Append(attr);
 
             attr = doc.CreateAttribute("score");

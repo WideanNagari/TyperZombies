@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -20,6 +21,7 @@ namespace TyperZombies
             p1 = p;
         }
         public bool end;
+        string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=" + AppDomain.CurrentDomain.BaseDirectory + "db_proyek.mdf;Integrated Security=True;Connect Timeout=30";
         private void Pause_Load(object sender, EventArgs e)
         {
             end = false;
@@ -71,7 +73,11 @@ namespace TyperZombies
             root.AppendChild(child);
             child.InnerText = p.nama;
 
-            XmlAttribute attr = doc.CreateAttribute("level");
+            XmlAttribute attr = doc.CreateAttribute("id");
+            attr.Value = p.id;
+            child.Attributes.Append(attr);
+
+            attr = doc.CreateAttribute("level");
             attr.Value = p.level + "";
             child.Attributes.Append(attr);
 
@@ -133,6 +139,13 @@ namespace TyperZombies
         private void button4_Click(object sender, EventArgs e)
         {
             save(p1);
+
+            SqlConnection conn = new SqlConnection(connectionString);
+            conn.Open();
+            string query = $"Update Highscore set skor = '"+p1.score+ "',gold = '" + p1.gold + "',level = '" + p1.level + "' where id_player = '"+p1.id+"'";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.ExecuteNonQuery();
+            conn.Close();
         }
     }
 }

@@ -84,6 +84,7 @@ namespace TyperZombies
             doc.Load(p.nama+".xml");
             foreach (XmlNode item in doc.DocumentElement.ChildNodes)
             {
+                p.id = item.Attributes["id"].InnerText;
                 p.level = Convert.ToInt32(item.Attributes["level"].InnerText);
                 p.score = Convert.ToInt32(item.Attributes["score"].InnerText);
                 p.gold = Convert.ToInt32(item.Attributes["gold"].InnerText);
