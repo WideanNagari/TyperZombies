@@ -15,13 +15,14 @@ namespace TyperZombies
     {
         Player p1;
         List<Zombie> arrZombie;
-        public Form1(Player p, List<Zombie> arrz)
+        Asset assets;
+        public Form1(Player p, List<Zombie> arrz, Asset aa)
         {
             InitializeComponent();
             p1 = p;
             arrZombie = arrz;
+            assets = aa;
         }
-        Asset assets;
         Random r;
         int ctrSpawn;
         Image imgExplode;
@@ -43,16 +44,15 @@ namespace TyperZombies
             progressBar1.Value = p1.hp;
             progressBar2.Value = p1.party;
 
-            button1.Image = (Image)(new Bitmap(Image.FromFile("./asset2/pauseI.png"), new Size(57, 57)));
-            button2.Image = (Image)(new Bitmap(Image.FromFile("./asset2/bomb.png"), new Size(57, 57)));
-            button3.Image = (Image)(new Bitmap(Image.FromFile("./asset2/heal.png"), new Size(70, 70)));
-            button4.Image = (Image)(new Bitmap(Image.FromFile("./asset2/gold.png"), new Size(70, 70)));
-            button5.Image = (Image)(new Bitmap(Image.FromFile("./asset2/box.png"), new Size(70, 70)));
-            button6.Image = (Image)(new Bitmap(Image.FromFile("./asset2/play.png"), new Size(57, 57)));
+            button1.Image = (Image)(new Bitmap(assets.pausee, new Size(57, 57)));
+            button2.Image = (Image)(new Bitmap(assets.bom, new Size(57, 57)));
+            button3.Image = (Image)(new Bitmap(assets.heal, new Size(70, 70)));
+            button4.Image = (Image)(new Bitmap(assets.sog, new Size(70, 70)));
+            button5.Image = (Image)(new Bitmap(assets.box, new Size(70, 70)));
+            button6.Image = (Image)(new Bitmap(assets.play, new Size(57, 57)));
 
             textBox1.TextAlign = HorizontalAlignment.Center;
             r = new Random();
-            assets = new Asset();
             fontext2 = new SolidBrush(Color.Yellow);
             fontext = new SolidBrush(Color.LightCyan);
             f = new Font("Comic Sans ms", 16);
@@ -398,7 +398,7 @@ namespace TyperZombies
             this.Hide();
             timer1.Stop();
             timer2.Stop();
-            Pause p = new Pause(p1,arrZombie);
+            Pause p = new Pause(p1,arrZombie,assets);
             p.ShowDialog();
             if (p.end)
             {

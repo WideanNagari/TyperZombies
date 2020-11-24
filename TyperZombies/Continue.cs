@@ -15,10 +15,12 @@ namespace TyperZombies
     public partial class Continue : Form
     {
         List<string> arrP;
-        public Continue(List<string> arrp)
+        Asset asset;
+        public Continue(List<string> arrp, Asset a)
         {
             InitializeComponent();
             arrP = arrp;
+            asset = a;
         }
         Player p;
         XmlDocument doc;
@@ -31,7 +33,7 @@ namespace TyperZombies
         {
             Graphics g = e.Graphics;
             g.DrawImage(Image.FromFile("bg1.png"), 0, 0, 1120, 600);
-            g.DrawImage(Image.FromFile("./asset2/continue.png"), 360, 10, 400, 75);
+            g.DrawImage(asset.cont, 360, 10, 400, 75);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -69,7 +71,7 @@ namespace TyperZombies
                         p = new Player(textBox1.Text);
                         List<Zombie> arrz = new List<Zombie>();
                         load(p, arrz);
-                        Form1 f = new Form1(p,arrz);
+                        Form1 f = new Form1(p,arrz,asset);
                         this.Hide();
                         f.ShowDialog();
                         this.Close();

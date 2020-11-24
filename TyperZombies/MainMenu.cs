@@ -20,14 +20,16 @@ namespace TyperZombies
         }
         List<string> arrP;
         List<Player> arrPlayer;
+        Asset asset;
         string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=" + AppDomain.CurrentDomain.BaseDirectory + "db_proyek.mdf;Integrated Security=True;Connect Timeout=30";
         private void MainMenu_Load(object sender, EventArgs e)
         {
-            button1.Image = (Image)(new Bitmap(Image.FromFile("./asset2/new-game.png"), new Size(180, 50)));
-            button2.Image = (Image)(new Bitmap(Image.FromFile("./asset2/continue.png"), new Size(180, 50)));
-            button3.Image = (Image)(new Bitmap(Image.FromFile("./asset2/high-score.png"), new Size(180, 50)));
-            button4.Image = (Image)(new Bitmap(Image.FromFile("./asset2/about.png"), new Size(130, 40)));
-            button5.Image = (Image)(new Bitmap(Image.FromFile("./asset2/exit.png"), new Size(110, 42)));
+            asset = new Asset();
+            button1.Image = (Image)(new Bitmap(asset.newGame, new Size(180, 50)));
+            button2.Image = (Image)(new Bitmap(asset.cont, new Size(180, 50)));
+            button3.Image = (Image)(new Bitmap(asset.high, new Size(180, 50)));
+            button4.Image = (Image)(new Bitmap(asset.about, new Size(130, 40)));
+            button5.Image = (Image)(new Bitmap(asset.exit, new Size(110, 42)));
 
             SqlConnection conn = new SqlConnection(connectionString);
             //conn.Open();
@@ -70,12 +72,12 @@ namespace TyperZombies
         {
             Graphics g = e.Graphics;
             g.DrawImage(Image.FromFile("bg1.png"), 0, 0, 1120, 600);
-            g.DrawImage(Image.FromFile("./asset2/logo.png"), 260, 10, 600, 100);
+            g.DrawImage(asset.logo, 260, 10, 600, 100);
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            About a = new About();
+            About a = new About(asset);
             this.Hide();
             a.ShowDialog();
             this.Show();
@@ -95,7 +97,7 @@ namespace TyperZombies
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Newgame n = new Newgame(arrP);
+            Newgame n = new Newgame(arrP,asset);
             this.Hide();
             n.ShowDialog();
             this.Show();
@@ -104,7 +106,7 @@ namespace TyperZombies
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Continue c = new Continue(arrP);
+            Continue c = new Continue(arrP, asset);
             this.Hide();
             c.ShowDialog();
             this.Show();
@@ -114,7 +116,7 @@ namespace TyperZombies
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Highscore h = new Highscore(arrPlayer);
+            Highscore h = new Highscore(arrPlayer, asset);
             this.Hide();
             h.ShowDialog();
             this.Show();

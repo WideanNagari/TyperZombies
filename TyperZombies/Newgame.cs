@@ -15,10 +15,12 @@ namespace TyperZombies
     public partial class Newgame : Form
     {
         List<string> arrP;
-        public Newgame(List<string> arrp)
+        Asset asset;
+        public Newgame(List<string> arrp, Asset a)
         {
             InitializeComponent();
             arrP = arrp;
+            asset = a;
         }
         
         Player p;
@@ -26,7 +28,7 @@ namespace TyperZombies
         string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=" + AppDomain.CurrentDomain.BaseDirectory + "db_proyek.mdf;Integrated Security=True;Connect Timeout=30";
         private void Newgame_Load(object sender, EventArgs e)
         {
-            button1.Image = (Image)(new Bitmap(Image.FromFile("./asset2/back.png"), new Size(180, 65)));
+            button1.Image = (Image)(new Bitmap(asset.back, new Size(180, 65)));
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -38,7 +40,7 @@ namespace TyperZombies
         {
             Graphics g = e.Graphics;
             g.DrawImage(Image.FromFile("bg1.png"), 0, 0, 1120, 600);
-            g.DrawImage(Image.FromFile("./asset2/new-game.png"), 360, 10, 400, 75);
+            g.DrawImage(asset.newGame, 360, 10, 400, 75);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -118,7 +120,7 @@ namespace TyperZombies
                     save(p);
 
                     List<Zombie> arrz = new List<Zombie>();
-                    Form1 f = new Form1(p,arrz);
+                    Form1 f = new Form1(p,arrz,asset);
                     this.Hide();
                     f.ShowDialog();
                     this.Close();

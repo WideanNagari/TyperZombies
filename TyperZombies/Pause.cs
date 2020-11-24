@@ -16,11 +16,13 @@ namespace TyperZombies
     {
         public Player p1;
         List<Zombie> arrZombie;
-        public Pause(Player p, List<Zombie> arrz)
+        Asset asset;
+        public Pause(Player p, List<Zombie> arrz, Asset a)
         {
             InitializeComponent();
             p1 = p;
             arrZombie = arrz;
+            asset = a;
         }
         public bool end;
         string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=" + AppDomain.CurrentDomain.BaseDirectory + "db_proyek.mdf;Integrated Security=True;Connect Timeout=30";
@@ -33,7 +35,7 @@ namespace TyperZombies
         {
             Graphics g = e.Graphics;
             g.DrawImage(Image.FromFile("bg2.png"), 0, 0, 1120, 600);
-            g.DrawImage(Image.FromFile("./asset2/pause.png"), 370, 20, 350, 85);
+            g.DrawImage(asset.pause, 370, 20, 350, 85);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -43,7 +45,7 @@ namespace TyperZombies
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Status s = new Status(p1);
+            Status s = new Status(p1,asset);
             this.Hide();
             s.ShowDialog();
             this.Show();
@@ -51,7 +53,7 @@ namespace TyperZombies
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Shop s = new Shop(p1);
+            Shop s = new Shop(p1,asset);
             this.Hide();
             s.ShowDialog();
             this.Show();

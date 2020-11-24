@@ -12,9 +12,11 @@ namespace TyperZombies
 {
     public partial class About : Form
     {
-        public About()
+        Asset asset;
+        public About(Asset a)
         {
             InitializeComponent();
+            asset = a;
         }
 
         private void About_Load(object sender, EventArgs e)
@@ -26,11 +28,11 @@ namespace TyperZombies
         {
             Graphics g = e.Graphics;
             g.DrawImage(Image.FromFile("bg1.png"), 0, 0, 1120, 600);
-            g.DrawImage(Image.FromFile("./asset2/logo.png"), 260, 10, 600, 100);
-            g.DrawImage(Image.FromFile("./asset2/evan.png"), 275, 200, 570, 45);
-            g.DrawImage(Image.FromFile("./asset2/indah.png"), 155, 270, 830, 45);
-            g.DrawImage(Image.FromFile("./asset2/valentino.png"), 155, 340, 820, 45);
-            g.DrawImage(Image.FromFile("./asset2/widean.png"), 275, 410, 570, 45);
+            g.DrawImage(asset.logo, 260, 10, 600, 100);
+            g.DrawImage(asset.evan, 275, 200, 570, 45);
+            g.DrawImage(asset.indah, 155, 270, 830, 45);
+            g.DrawImage(asset.valent, 155, 340, 820, 45);
+            g.DrawImage(asset.widean, 275, 410, 570, 45);
         }
 
         private void button1_Click(object sender, EventArgs e)

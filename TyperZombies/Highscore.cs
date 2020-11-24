@@ -13,10 +13,12 @@ namespace TyperZombies
     public partial class Highscore : Form
     {
         List<Player> arrp;
-        public Highscore(List<Player> a)
+        Asset asset;
+        public Highscore(List<Player> a, Asset aa)
         {
             InitializeComponent();
             arrp = a;
+            asset = aa;
         }
         List<Player> highScore;
         private void Highscore_Load(object sender, EventArgs e)
@@ -35,7 +37,7 @@ namespace TyperZombies
         {
             Graphics g = e.Graphics;
             g.DrawImage(Image.FromFile("bg1.png"), 0, 0, 1120, 600);
-            g.DrawImage(Image.FromFile("./asset2/high-score.png"), 335, 10, 450, 75);
+            g.DrawImage(asset.high, 335, 10, 450, 75);
         }
 
         private void button1_Click(object sender, EventArgs e)

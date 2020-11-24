@@ -13,15 +13,17 @@ namespace TyperZombies
     public partial class Shop : Form
     {
         public Player p1;
-        public Shop(Player p)
+        Asset asset;
+        public Shop(Player p, Asset a)
         {
             InitializeComponent();
             p1 = p;
+            asset = a;
         }
 
         private void Shop_Load(object sender, EventArgs e)
         {
-            button1.Image = (Image)(new Bitmap(Image.FromFile("./asset2/back.png"), new Size(120, 45)));
+            button1.Image = (Image)(new Bitmap(asset.back, new Size(120, 45)));
             gold.Text = p1.gold + "";
             aBox.Text = "Owned : "+p1.aBox;
             sgold.Text = "Owned : "+p1.sog;
@@ -35,12 +37,12 @@ namespace TyperZombies
         {
             Graphics g = e.Graphics;
             g.DrawImage(Image.FromFile("bg2.png"), 0, 0, 1120, 600);
-            g.DrawImage(Image.FromFile("./asset2/shop.png"), 450, 10, 200, 60);
-            g.DrawImage(Image.FromFile("./asset2/bomb.png"), 470, 90, 75, 75);
-            g.DrawImage(Image.FromFile("./asset2/heal.png"), 460, 170, 85, 85);
-            g.DrawImage(Image.FromFile("./asset2/hp.png"), 460, 260, 75, 75);
-            g.DrawImage(Image.FromFile("./asset2/gold.png"), 460, 340, 85, 85);
-            g.DrawImage(Image.FromFile("./asset2/box.png"), 460, 430, 85, 85);
+            g.DrawImage(asset.shop, 450, 10, 200, 60);
+            g.DrawImage(asset.bom, 470, 90, 75, 75);
+            g.DrawImage(asset.heal, 460, 170, 85, 85);
+            g.DrawImage(asset.hp, 460, 260, 75, 75);
+            g.DrawImage(asset.sog, 460, 340, 85, 85);
+            g.DrawImage(asset.box, 460, 430, 85, 85);
         }
 
         private void button1_Click(object sender, EventArgs e)
