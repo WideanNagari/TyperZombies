@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -28,8 +29,11 @@ namespace TyperZombies
         Brush fontext2;
         Font f;
         bool bomb2;
+        bool dead;
+        string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=" + AppDomain.CurrentDomain.BaseDirectory + "db_proyek.mdf;Integrated Security=True;Connect Timeout=30";
         private void Form1_Load(object sender, EventArgs e)
         {
+            dead = false;
             label1.Text = p1.hp+"/"+ p1.maxhp;
             label2.Text = "Score: "+p1.score;
             label3.Text = "Gold: "+p1.gold;
@@ -181,6 +185,7 @@ namespace TyperZombies
                     {
                         progressBar1.Value = 0;
                         label1.Text = "0/" + p1.maxhp;
+                        dead = true;
                     }
                     arrZombie.RemoveAt(i);
                 }
@@ -277,7 +282,29 @@ namespace TyperZombies
                     label5.Visible = false;
                 }
             }
+
             Invalidate();
+            if (dead)
+            {
+                timer1.Stop();
+                timer2.Stop();
+                string query = $"Update player set status = '0' where Id='"+p1.id+"'";
+                SqlConnection conn = new SqlConnection(connectionString);
+                SqlCommand cmd = new SqlCommand(query, conn);
+                conn.Open();
+                cmd = new SqlCommand(query, conn);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+
+                query = $"Update Highscore set status = '0' where id_player='" + p1.id + "'";
+                conn.Open();
+                cmd = new SqlCommand(query, conn);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+
+                MessageBox.Show("Game Over!");
+                this.Close();
+            }
         }
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
@@ -313,11 +340,37 @@ namespace TyperZombies
             if (ctrSpawn == cd)
             {
                 int jumlah = r.Next(1, 3);
+                int tempY = 0;
                 for (int i = 0; i < jumlah; i++)
                 {
                     int jenis = r.Next(0, 4);
-                    int y = r.Next(50, 341);
-                    if (jenis == 0) arrZombie.Add(new Jester(0, y, assets, assets.randomKata(), assets.jester[0]));
+                    int y;
+                    bool lewat = false;
+                    do
+                    {
+                        y = r.Next(0, 5);
+                        if (i == 0)
+                        {
+                            tempY = y;
+                            lewat = true;
+                        }
+                        else
+                        {
+                            if (tempY != y) lewat = true;
+                        }
+                    } while (lewat == false);
+                    
+                    if (y == 0) y = -50;
+                    else if (y == 1) y = 60;
+                    else if (y == 2) y = 160;
+                    else if (y == 3) y = 250;
+                    else if (y == 4) y = 350;
+
+                    if (jenis == 0)
+                    {
+                        y += 50;
+                        arrZombie.Add(new Jester(0, y, assets, assets.randomKata(), assets.jester[0]));
+                    }
                     else if (jenis == 1) arrZombie.Add(new George(0, y, assets, assets.randomKata(), assets.george[0]));
                     else if (jenis == 2) arrZombie.Add(new AGeorge(0, y, assets, assets.randomKata(), assets.ageorge[0]));
                     else if (jenis == 3) arrZombie.Add(new Beatrix(0, y, assets, assets.randomKata(), assets.beatrix[0]));
@@ -326,7 +379,7 @@ namespace TyperZombies
                 }
                 ctrSpawn = 0;
             }
-
+            
             Invalidate();
             ctrSpawn++;
         }

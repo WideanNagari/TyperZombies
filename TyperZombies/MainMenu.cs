@@ -20,7 +20,6 @@ namespace TyperZombies
         }
         List<string> arrP;
         List<Player> arrPlayer;
-        XmlDocument doc;
         string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=" + AppDomain.CurrentDomain.BaseDirectory + "db_proyek.mdf;Integrated Security=True;Connect Timeout=30";
         private void MainMenu_Load(object sender, EventArgs e)
         {
@@ -37,15 +36,28 @@ namespace TyperZombies
             //cmd.ExecuteNonQuery();
             //conn.Close();
 
+            load();
+        }
+
+        private void load()
+        {
             arrP = new List<string>();
             SqlConnection conn = new SqlConnection(connectionString);
             conn.Open();
-            SqlCommand cmd = new SqlCommand("Select * From player p,Highscore h where p.status = '1' and h.status = '1' and p.Id = h.id_player", conn);
+            SqlCommand cmd = new SqlCommand("Select * From player p where p.status = '1'", conn);
             SqlDataReader reader = cmd.ExecuteReader();
-            arrPlayer = new List<Player>();
             while (reader.Read())
             {
                 arrP.Add(reader.GetString(1) + " " + reader.GetString(2));
+            }
+            conn.Close();
+            
+            arrPlayer = new List<Player>();
+            conn.Open();
+            cmd = new SqlCommand("Select * From player p, Highscore h where p.Id = h.id_player", conn);
+            reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
                 Player p = new Player(reader.GetString(1));
                 p.score = Convert.ToInt32(reader.GetString(6));
                 p.gold = Convert.ToInt32(reader.GetString(7));
@@ -54,6 +66,7 @@ namespace TyperZombies
             }
             conn.Close();
         }
+
         private void MainMenu_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
@@ -87,16 +100,7 @@ namespace TyperZombies
             this.Hide();
             n.ShowDialog();
             this.Show();
-            arrP = new List<string>();
-            SqlConnection conn = new SqlConnection(connectionString);
-            conn.Open();
-            SqlCommand cmd = new SqlCommand("Select * From player where status = '1'", conn);
-            SqlDataReader reader = cmd.ExecuteReader();
-            while (reader.Read())
-            {
-                arrP.Add(reader.GetString(1) + " " + reader.GetString(2));
-            }
-            conn.Close();
+            load();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -105,6 +109,8 @@ namespace TyperZombies
             this.Hide();
             c.ShowDialog();
             this.Show();
+            arrP = new List<string>();
+            load();
         }
 
         private void button3_Click(object sender, EventArgs e)
