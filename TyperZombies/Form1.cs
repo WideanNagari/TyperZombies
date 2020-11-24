@@ -14,13 +14,14 @@ namespace TyperZombies
     public partial class Form1 : Form
     {
         Player p1;
-        public Form1(Player p)
+        List<Zombie> arrZombie;
+        public Form1(Player p, List<Zombie> arrz)
         {
             InitializeComponent();
             p1 = p;
+            arrZombie = arrz;
         }
         Asset assets;
-        List<Zombie> arrZombie;
         Random r;
         int ctrSpawn;
         Image imgExplode;
@@ -52,11 +53,19 @@ namespace TyperZombies
             textBox1.TextAlign = HorizontalAlignment.Center;
             r = new Random();
             assets = new Asset();
-            arrZombie = new List<Zombie>();
             fontext2 = new SolidBrush(Color.Yellow);
             fontext = new SolidBrush(Color.LightCyan);
             f = new Font("Comic Sans ms", 16);
             ctrSpawn = 0;
+
+            foreach (Zombie z in arrZombie)
+            {
+                z.assets = assets;
+                if (z is Jester) z.sprite = assets.jester[z.ctr];
+                else if (z is George) z.sprite = assets.george[z.ctr];
+                else if (z is AGeorge) z.sprite = assets.ageorge[z.ctr];
+                else if (z is Beatrix) z.sprite = assets.beatrix[z.ctr];
+            }
         }
 
         private void Form1_Paint(object sender, PaintEventArgs e)
@@ -389,7 +398,7 @@ namespace TyperZombies
             this.Hide();
             timer1.Stop();
             timer2.Stop();
-            Pause p = new Pause(p1);
+            Pause p = new Pause(p1,arrZombie);
             p.ShowDialog();
             if (p.end)
             {

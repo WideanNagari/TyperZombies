@@ -17,7 +17,13 @@ namespace TyperZombies
             hp = 1;
             speed = 5;
         }
-
+        public Jester(int x, int y, int ctr, int hp, string kata) : base(x, y, ctr, hp, kata)
+        {
+            damage = 100;
+            gold = 50;
+            score = 100;
+            speed = 5;
+        }
         public void gantiAnimasi(List<Image> arrImg)
         {
             if (!dead)

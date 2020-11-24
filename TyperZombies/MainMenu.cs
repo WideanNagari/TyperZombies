@@ -29,13 +29,12 @@ namespace TyperZombies
             button4.Image = (Image)(new Bitmap(Image.FromFile("./asset2/about.png"), new Size(130, 40)));
             button5.Image = (Image)(new Bitmap(Image.FromFile("./asset2/exit.png"), new Size(110, 42)));
 
-            //SqlConnection conn = new SqlConnection(connectionString);
+            SqlConnection conn = new SqlConnection(connectionString);
             //conn.Open();
             //string query = $"Delete from player";
             //SqlCommand cmd = new SqlCommand(query, conn);
             //cmd.ExecuteNonQuery();
             //conn.Close();
-
             load();
         }
 

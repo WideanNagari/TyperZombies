@@ -18,7 +18,13 @@ namespace TyperZombies
             hp = 2;
             speed = 3;
         }
-
+        public Beatrix(int x, int y, int ctr, int hp, string kata) : base(x, y, ctr, hp, kata)
+        {
+            damage = 300;
+            gold = 175;
+            score = 350;
+            speed = 3;
+        }
         public void gantiAnimasi(List<Image> arrImg)
         {
             if (!dead)

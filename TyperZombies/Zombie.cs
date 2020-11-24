@@ -23,7 +23,7 @@ namespace TyperZombies
         public int hp { get; set; }
         public int speed { get; set; }
         public string kata { get; set; }
-        protected Asset assets;
+        public Asset assets { get; set; }
 
         public Zombie(int x, int y, Asset assets, string kata, Image img)
         {
@@ -35,6 +35,19 @@ namespace TyperZombies
             this.y = y;
             this.dead = false;
             this.assets = assets;
+            this.ketemu = false;
+            this.doubled = false;
+        }
+
+        public Zombie(int x, int y, int ctr, int hp, string kata)
+        {
+            this.x = x;
+            this.y = y;
+            this.ctr = ctr;
+            this.ctr2 = 0;
+            this.kata = kata;
+            this.hp = hp;
+            this.dead = false;
             this.ketemu = false;
             this.doubled = false;
         }

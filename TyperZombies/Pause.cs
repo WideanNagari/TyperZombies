@@ -15,10 +15,12 @@ namespace TyperZombies
     public partial class Pause : Form
     {
         public Player p1;
-        public Pause(Player p)
+        List<Zombie> arrZombie;
+        public Pause(Player p, List<Zombie> arrz)
         {
             InitializeComponent();
             p1 = p;
+            arrZombie = arrz;
         }
         public bool end;
         string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=" + AppDomain.CurrentDomain.BaseDirectory + "db_proyek.mdf;Integrated Security=True;Connect Timeout=30";
@@ -71,7 +73,6 @@ namespace TyperZombies
 
             XmlNode child = doc.CreateElement("player");
             root.AppendChild(child);
-            child.InnerText = p.nama;
 
             XmlAttribute attr = doc.CreateAttribute("id");
             attr.Value = p.id;
@@ -132,6 +133,42 @@ namespace TyperZombies
             attr = doc.CreateAttribute("efekBox");
             attr.Value = p.efekBox + "";
             child.Attributes.Append(attr);
+
+            foreach (Zombie z in arrZombie)
+            {
+                if (!z.dead)
+                {
+                    XmlNode zombie = doc.CreateElement("zombie");
+                    child.AppendChild(zombie);
+                    zombie.InnerText = z.kata;
+
+                    string jenis = "";
+                    if (z is Jester) jenis = "Jester";
+                    else if (z is George) jenis = "George";
+                    else if (z is AGeorge) jenis = "AGeorge";
+                    else if (z is Beatrix) jenis = "Beatrix";
+
+                    attr = doc.CreateAttribute("jenis");
+                    attr.Value = jenis;
+                    zombie.Attributes.Append(attr);
+
+                    attr = doc.CreateAttribute("x");
+                    attr.Value = z.x + "";
+                    zombie.Attributes.Append(attr);
+
+                    attr = doc.CreateAttribute("y");
+                    attr.Value = z.y + "";
+                    zombie.Attributes.Append(attr);
+
+                    attr = doc.CreateAttribute("ctr");
+                    attr.Value = z.ctr + "";
+                    zombie.Attributes.Append(attr);
+
+                    attr = doc.CreateAttribute("hp");
+                    attr.Value = z.hp + "";
+                    zombie.Attributes.Append(attr);
+                }
+            }
 
             doc.Save(p.nama + ".xml");
         }

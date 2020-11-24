@@ -67,8 +67,9 @@ namespace TyperZombies
                     if (textBox2.Text == pass)
                     {
                         p = new Player(textBox1.Text);
-                        load(p);
-                        Form1 f = new Form1(p);
+                        List<Zombie> arrz = new List<Zombie>();
+                        load(p, arrz);
+                        Form1 f = new Form1(p,arrz);
                         this.Hide();
                         f.ShowDialog();
                         this.Close();
@@ -78,7 +79,7 @@ namespace TyperZombies
             }
         }
 
-        private void load(Player p)
+        private void load(Player p, List<Zombie> arrz)
         {
             doc = new XmlDocument();
             doc.Load(p.nama+".xml");
@@ -99,6 +100,24 @@ namespace TyperZombies
                 p.aBox = Convert.ToInt32(item.Attributes["aBox"].InnerText);
                 p.efekSog = Convert.ToInt32(item.Attributes["efekSog"].InnerText);
                 p.efekBox = Convert.ToInt32(item.Attributes["efekBox"].InnerText);
+
+                foreach (XmlNode item2 in item.ChildNodes)
+                {
+                    int x = Convert.ToInt32(item2.Attributes["x"].InnerText);
+                    int y = Convert.ToInt32(item2.Attributes["y"].InnerText);
+                    int ctr = Convert.ToInt32(item2.Attributes["ctr"].InnerText);
+                    int hp = Convert.ToInt32(item2.Attributes["hp"].InnerText);
+                    string kata = item2.InnerText;
+                    string jenis = item2.Attributes["jenis"].InnerText;
+
+                    Zombie z = null;
+                    if (jenis.Equals("Jester")) z = new Jester(x,y,ctr,hp,kata);
+                    else if (jenis.Equals("George")) z = new George(x,y,ctr,hp,kata);
+                    else if (jenis.Equals("AGeorge")) z = new AGeorge(x,y,ctr,hp,kata);
+                    else if (jenis.Equals("Beatrix")) z = new Beatrix(x,y,ctr,hp,kata);
+
+                    arrz.Add(z);
+                }
             }
         }
     }

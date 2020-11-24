@@ -18,7 +18,13 @@ namespace TyperZombies
             hp = 2;
             speed = 4;
         }
-
+        public AGeorge(int x, int y, int ctr, int hp, string kata) : base(x, y, ctr, hp, kata)
+        {
+            damage = 150;
+            gold = 130;
+            score = 275;
+            speed = 4;
+        }
         public void gantiAnimasi(List<Image> arrImg)
         {
             if (!dead)

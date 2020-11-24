@@ -117,7 +117,8 @@ namespace TyperZombies
 
                     save(p);
 
-                    Form1 f = new Form1(p);
+                    List<Zombie> arrz = new List<Zombie>();
+                    Form1 f = new Form1(p,arrz);
                     this.Hide();
                     f.ShowDialog();
                     this.Close();
@@ -133,7 +134,6 @@ namespace TyperZombies
 
             XmlNode child = doc.CreateElement("player");
             root.AppendChild(child);
-            child.InnerText = p.nama;
 
             XmlAttribute attr = doc.CreateAttribute("id");
             attr.Value = p.id;
