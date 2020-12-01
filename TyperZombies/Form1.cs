@@ -252,7 +252,7 @@ namespace TyperZombies
                         d = 1;
                     }
                 }
-                if (arrZombie[i] != null && arrZombie[i].x >= 1000)
+                if (arrZombie.Count>i && arrZombie[i].x >= 1000)
                 {
                     p1.hp -= arrZombie[i].damage;
                     if (progressBar1.Value - arrZombie[i].damage > 0)
