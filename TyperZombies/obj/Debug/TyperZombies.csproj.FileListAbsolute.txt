@@ -17,3 +17,22 @@ C:\Users\Widean Nagari\Desktop\TyperZombies\TyperZombies\obj\Debug\TyperZombies.
 C:\Users\Widean Nagari\Desktop\TyperZombies\TyperZombies\obj\Debug\TyperZombies.Status.resources
 C:\Users\Widean Nagari\Desktop\TyperZombies\TyperZombies\obj\Debug\TyperZombies.Shop.resources
 C:\Users\Widean Nagari\Desktop\TyperZombies\TyperZombies\obj\Debug\TyperZombies.Cheat.resources
+C:\Users\User\Documents\Sems3\Proyek\TyperZombies\TyperZombies\bin\Debug\TyperZombies.exe.config
+C:\Users\User\Documents\Sems3\Proyek\TyperZombies\TyperZombies\bin\Debug\TyperZombies.exe
+C:\Users\User\Documents\Sems3\Proyek\TyperZombies\TyperZombies\bin\Debug\TyperZombies.pdb
+C:\Users\User\Documents\Sems3\Proyek\TyperZombies\TyperZombies\obj\Debug\TyperZombies.csprojAssemblyReference.cache
+C:\Users\User\Documents\Sems3\Proyek\TyperZombies\TyperZombies\obj\Debug\TyperZombies.About.resources
+C:\Users\User\Documents\Sems3\Proyek\TyperZombies\TyperZombies\obj\Debug\TyperZombies.Cheat.resources
+C:\Users\User\Documents\Sems3\Proyek\TyperZombies\TyperZombies\obj\Debug\TyperZombies.Continue.resources
+C:\Users\User\Documents\Sems3\Proyek\TyperZombies\TyperZombies\obj\Debug\TyperZombies.Form1.resources
+C:\Users\User\Documents\Sems3\Proyek\TyperZombies\TyperZombies\obj\Debug\TyperZombies.Highscore.resources
+C:\Users\User\Documents\Sems3\Proyek\TyperZombies\TyperZombies\obj\Debug\TyperZombies.MainMenu.resources
+C:\Users\User\Documents\Sems3\Proyek\TyperZombies\TyperZombies\obj\Debug\TyperZombies.Newgame.resources
+C:\Users\User\Documents\Sems3\Proyek\TyperZombies\TyperZombies\obj\Debug\TyperZombies.Pause.resources
+C:\Users\User\Documents\Sems3\Proyek\TyperZombies\TyperZombies\obj\Debug\TyperZombies.Properties.Resources.resources
+C:\Users\User\Documents\Sems3\Proyek\TyperZombies\TyperZombies\obj\Debug\TyperZombies.Shop.resources
+C:\Users\User\Documents\Sems3\Proyek\TyperZombies\TyperZombies\obj\Debug\TyperZombies.Status.resources
+C:\Users\User\Documents\Sems3\Proyek\TyperZombies\TyperZombies\obj\Debug\TyperZombies.csproj.GenerateResource.cache
+C:\Users\User\Documents\Sems3\Proyek\TyperZombies\TyperZombies\obj\Debug\TyperZombies.csproj.CoreCompileInputs.cache
+C:\Users\User\Documents\Sems3\Proyek\TyperZombies\TyperZombies\obj\Debug\TyperZombies.exe
+C:\Users\User\Documents\Sems3\Proyek\TyperZombies\TyperZombies\obj\Debug\TyperZombies.pdb

@@ -1,0 +1,18 @@
+<ListPlayer>
+  <player id="P009" level="7" score="6700" gold="6335" hp="600" maxhp="2000" kill="24" party="0" bomb="0" heal="1" hpBooster="2" sog="0" aBox="0" efekSog="0" efekBox="-6">
+    <zombie jenis="Beatrix" x="818" y="160" ctr="1" hp="2">spoon</zombie>
+    <zombie jenis="Beatrix" x="818" y="250" ctr="1" hp="1">choose</zombie>
+    <zombie jenis="Beatrix" x="658" y="-50" ctr="3" hp="2">purple</zombie>
+    <zombie jenis="AGeorge" x="782" y="350" ctr="3" hp="2">period</zombie>
+    <zombie jenis="AGeorge" x="668" y="250" ctr="5" hp="2">reach</zombie>
+    <zombie jenis="Jester" x="835" y="110" ctr="7" hp="1">player</zombie>
+    <zombie jenis="Beatrix" x="420" y="250" ctr="2" hp="2">culture</zombie>
+    <zombie jenis="Beatrix" x="339" y="60" ctr="5" hp="2">shape</zombie>
+    <zombie jenis="AGeorge" x="340" y="160" ctr="1" hp="2">manufacture</zombie>
+    <zombie jenis="George" x="340" y="60" ctr="1" hp="2">see</zombie>
+    <zombie jenis="George" x="232" y="350" ctr="4" hp="2">colossal</zombie>
+    <zombie jenis="Jester" x="150" y="0" ctr="10" hp="1">assume</zombie>
+    <zombie jenis="Jester" x="15" y="0" ctr="3" hp="1">shape</zombie>
+    <zombie jenis="AGeorge" x="12" y="160" ctr="3" hp="2">serve</zombie>
+  </player>
+</ListPlayer>
