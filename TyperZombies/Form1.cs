@@ -147,8 +147,6 @@ namespace TyperZombies
                 label4.Text = "Level: " + p1.level;
                 progressBar1.Maximum = p1.maxhp;
                 progressBar1.Value = p1.hp;
-
-                cekValid();
             }
         }
 
@@ -422,7 +420,6 @@ namespace TyperZombies
                 label4.Text = "Level: " + p1.level;
                 progressBar1.Maximum = p1.maxhp;
                 progressBar1.Value = p1.hp;
-                cekValid();
             }
         }
 
