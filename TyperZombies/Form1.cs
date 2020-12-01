@@ -147,8 +147,6 @@ namespace TyperZombies
                 label4.Text = "Level: " + p1.level;
                 progressBar1.Maximum = p1.maxhp;
                 progressBar1.Value = p1.hp;
-
-                cekValid();
             }
         }
 
@@ -252,7 +250,7 @@ namespace TyperZombies
                         d = 1;
                     }
                 }
-                if (arrZombie[i] != null && arrZombie[i].x >= 1000)
+                if (arrZombie.Count>i && arrZombie[i].x >= 1000)
                 {
                     p1.hp -= arrZombie[i].damage;
                     if (progressBar1.Value - arrZombie[i].damage > 0)
@@ -422,7 +420,6 @@ namespace TyperZombies
                 label4.Text = "Level: " + p1.level;
                 progressBar1.Maximum = p1.maxhp;
                 progressBar1.Value = p1.hp;
-                cekValid();
             }
         }
 
