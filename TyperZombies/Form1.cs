@@ -182,22 +182,6 @@ namespace TyperZombies
             int d = 0;
             for (int i = arrZombie.Count - 1; i >= 0; i--)
             {
-                if (arrZombie[i].x >= 1000)
-                {
-                    p1.hp -= arrZombie[i].damage;
-                    if (progressBar1.Value - arrZombie[i].damage > 0)
-                    {
-                        progressBar1.Value -= arrZombie[i].damage;
-                        label1.Text = p1.hp + "/" + p1.maxhp;
-                    }
-                    else
-                    {
-                        progressBar1.Value = 0;
-                        label1.Text = "0/" + p1.maxhp;
-                        dead = true;
-                    }
-                    arrZombie.RemoveAt(i);
-                }
                 if (arrZombie[i] is Jester)
                 {
                     if (arrZombie[i].ctr == 18)
@@ -268,6 +252,22 @@ namespace TyperZombies
                         d = 1;
                     }
                 }
+                if (arrZombie[i] != null && arrZombie[i].x >= 1000)
+                {
+                    p1.hp -= arrZombie[i].damage;
+                    if (progressBar1.Value - arrZombie[i].damage > 0)
+                    {
+                        progressBar1.Value -= arrZombie[i].damage;
+                        label1.Text = p1.hp + "/" + p1.maxhp;
+                    }
+                    else
+                    {
+                        progressBar1.Value = 0;
+                        label1.Text = "0/" + p1.maxhp;
+                        dead = true;
+                    }
+                    arrZombie.RemoveAt(i);
+                }
             }
             if (p1.efekSog == 0 && p1.sog > 0) button4.Enabled = true;
             if (bomb2 && d == 1) bomb2 = false;
@@ -305,9 +305,14 @@ namespace TyperZombies
                 cmd.ExecuteNonQuery();
                 conn.Close();
 
-                query = $"Update Highscore set status = '0' where id_player='" + p1.id + "'";
+                query = "update [Highscore] set status=@status,skor=@skor,gold=@gold,level=@level where id_player= @idx";
+                cmd.Parameters.AddWithValue("@status", 0);
+                cmd.Parameters.AddWithValue("@skor", p1.score);
+                cmd.Parameters.AddWithValue("@gold", p1.gold);
+                cmd.Parameters.AddWithValue("@level", p1.level);
+                cmd.Parameters.AddWithValue("@idx", p1.id);
+
                 conn.Open();
-                cmd = new SqlCommand(query, conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
 
