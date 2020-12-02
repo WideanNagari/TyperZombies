@@ -29,7 +29,8 @@ namespace TyperZombies
             hp.Text = p1.hp + "/" + p1.maxhp;
             skor.Text = p1.score + "";
             gold.Text = p1.gold + "";
-            count.Text = p1.kill + "";
+            int totKill = p1.kill + p1.killParty;
+            count.Text = totKill + "";
         }
 
         private void Status_Paint(object sender, PaintEventArgs e)

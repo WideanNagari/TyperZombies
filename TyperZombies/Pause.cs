@@ -104,6 +104,10 @@ namespace TyperZombies
             attr.Value = p.kill + "";
             child.Attributes.Append(attr);
 
+            attr = doc.CreateAttribute("killParty");
+            attr.Value = p.killParty + "";
+            child.Attributes.Append(attr);
+
             attr = doc.CreateAttribute("party");
             attr.Value = p.party + "";
             child.Attributes.Append(attr);
@@ -178,13 +182,14 @@ namespace TyperZombies
         private void button4_Click(object sender, EventArgs e)
         {
             save(p1);
-
             SqlConnection conn = new SqlConnection(connectionString);
             conn.Open();
             string query = $"Update Highscore set skor = '"+p1.score+ "',gold = '" + p1.gold + "',level = '" + p1.level + "' where id_player = '"+p1.id+"'";
             SqlCommand cmd = new SqlCommand(query, conn);
             cmd.ExecuteNonQuery();
             conn.Close();
+
+            MessageBox.Show("Save Data Berhasil!");
         }
     }
 }

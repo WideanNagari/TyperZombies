@@ -36,6 +36,9 @@ namespace TyperZombies
             //string query = $"Delete from player";
             //SqlCommand cmd = new SqlCommand(query, conn);
             //cmd.ExecuteNonQuery();
+            //query = $"Delete from Highscore";
+            //cmd = new SqlCommand(query, conn);
+            //cmd.ExecuteNonQuery();
             //conn.Close();
             load();
         }

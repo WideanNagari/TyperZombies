@@ -1,5 +1,11 @@
 <ListPlayer>
-  <player id="P002" level="1" score="0" gold="0" hp="1500" maxhp="1500" kill="0" party="0" bomb="0" heal="0" hpBooster="1" sog="0" aBox="2" efekSog="0" efekBox="0">
-    <zombie jenis="Beatrix" x="57" y="250" ctr="1" hp="2">cabin</zombie>
+  <player id="P001" level="7" score="11425" gold="6390" hp="1500" maxhp="1500" kill="24" killParty="5" party="0" bomb="0" heal="0" hpBooster="1" sog="0" aBox="0" efekSog="0" efekBox="0">
+    <zombie jenis="AGeorge" x="486" y="60" ctr="5" hp="1">dry</zombie>
+    <zombie jenis="George" x="378" y="-50" ctr="5" hp="1">value</zombie>
+    <zombie jenis="AGeorge" x="244" y="160" ctr="1" hp="2">sweater</zombie>
+    <zombie jenis="Jester" x="305" y="110" ctr="1" hp="1">pretend</zombie>
+    <zombie jenis="Jester" x="170" y="400" ctr="4" hp="1">terrify</zombie>
+    <zombie jenis="George" x="136" y="60" ctr="4" hp="2">pretend</zombie>
+    <zombie jenis="George" x="28" y="350" ctr="1" hp="2">lead</zombie>
   </player>
 </ListPlayer>

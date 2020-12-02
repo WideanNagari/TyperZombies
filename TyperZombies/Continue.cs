@@ -94,6 +94,7 @@ namespace TyperZombies
                 p.hp = Convert.ToInt32(item.Attributes["hp"].InnerText);
                 p.maxhp = Convert.ToInt32(item.Attributes["maxhp"].InnerText);
                 p.kill = Convert.ToInt32(item.Attributes["kill"].InnerText);
+                p.killParty = Convert.ToInt32(item.Attributes["killParty"].InnerText);
                 p.party = Convert.ToInt32(item.Attributes["party"].InnerText);
                 p.bomb = Convert.ToInt32(item.Attributes["bomb"].InnerText);
                 p.heal = Convert.ToInt32(item.Attributes["heal"].InnerText);

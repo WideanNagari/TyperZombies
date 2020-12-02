@@ -15,6 +15,7 @@ namespace TyperZombies
         public int hp { get; set; }
         public int maxhp { get; set; }
         public int kill { get; set; }
+        public int killParty { get; set; }
         public int party { get; set; }
         public int bomb { get; set; }
         public int heal { get; set; }
@@ -34,6 +35,7 @@ namespace TyperZombies
             this.hp = 1500;
             this.maxhp = 1500;
             this.kill = 0;
+            this.killParty = 0;
             this.party = 0;
             this.bomb = 0;
             this.heal = 0;

@@ -165,6 +165,10 @@ namespace TyperZombies
             attr.Value = p.kill+"";
             child.Attributes.Append(attr);
 
+            attr = doc.CreateAttribute("killParty");
+            attr.Value = p.killParty + "";
+            child.Attributes.Append(attr);
+
             attr = doc.CreateAttribute("party");
             attr.Value = p.party+"";
             child.Attributes.Append(attr);

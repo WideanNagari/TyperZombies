@@ -25,6 +25,7 @@ namespace TyperZombies
         }
         Random r;
         int ctrSpawn;
+        int countDown;
         Image imgExplode;
         int ctrExplode, ctrLabel;
         Brush fontext;
@@ -35,6 +36,7 @@ namespace TyperZombies
         string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=" + AppDomain.CurrentDomain.BaseDirectory + "db_proyek.mdf;Integrated Security=True;Connect Timeout=30";
         private void Form1_Load(object sender, EventArgs e)
         {
+            countDown = 3;
             dead = false;
             label1.Text = p1.hp+"/"+ p1.maxhp;
             label2.Text = "Score: "+p1.score;
@@ -137,6 +139,10 @@ namespace TyperZombies
                 c.ShowDialog();
                 this.Show();
                 p1 = c.p1;
+                button2.Enabled = false;
+                button3.Enabled = false;
+                button4.Enabled = false;
+                button5.Enabled = false;
                 label6.Text = "Tekan tombol play untuk melanjutkan!";
                 label6.Visible = true;
                 textBox1.Text = "";
@@ -147,6 +153,7 @@ namespace TyperZombies
                 label4.Text = "Level: " + p1.level;
                 progressBar1.Maximum = p1.maxhp;
                 progressBar1.Value = p1.hp;
+                countDown = 3;
             }
         }
 
@@ -223,6 +230,7 @@ namespace TyperZombies
                         {
                             p1.score += arrZombie[i].score * 2;
                             p1.gold += arrZombie[i].gold * 2;
+                            p1.killParty++;
                         }
                         else
                         {
@@ -234,7 +242,7 @@ namespace TyperZombies
                             p1.efekSog--;
                             p1.gold += 200;
                         }
-                        if (!bomb2) p1.kill++;
+                        if (!bomb2 && !arrZombie[i].doubled) p1.kill++;
                         if (p1.kill%5==0 && p1.party==0)
                         {
                             p1.level++;
@@ -275,16 +283,14 @@ namespace TyperZombies
                 progressBar2.Value = p1.party;
                 label5.Visible = true;
             }
-            else if (p1.level % 3 == 0)
+            else if (p1.level % 3 == 0 && p1.party>0)
             {
-                //kecepatan,gold,skor semua zombie ditambah
-                //kecepatan spawn ditambah
                 p1.party -= 1;
                 progressBar2.Value = p1.party;
                 if (p1.party==0)
                 {
                     p1.level++;
-                    p1.efekBox--;
+                    if (p1.efekBox>0) p1.efekBox--;
                     label4.Text = "Level: "+p1.level;
                     label5.Visible = false;
                 }
@@ -409,6 +415,10 @@ namespace TyperZombies
             }
             else
             {
+                button2.Enabled = false;
+                button3.Enabled = false;
+                button4.Enabled = false;
+                button5.Enabled = false;
                 label6.Text = "Tekan tombol play untuk melanjutkan!";
                 label6.Visible = true;
                 this.Show();
@@ -420,16 +430,17 @@ namespace TyperZombies
                 label4.Text = "Level: " + p1.level;
                 progressBar1.Maximum = p1.maxhp;
                 progressBar1.Value = p1.hp;
+
+                countDown = 3;
             }
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
             label6.Visible = false;
-            timer1.Start();
-            timer2.Start();
-
-            cekValid();
+            label8.Text = "" + countDown;
+            label8.Visible = true;
+            timer3.Start();
         }
 
         private void cekValid()
@@ -504,6 +515,23 @@ namespace TyperZombies
                 z.hp = 1;
             }
             cekValid();
+        }
+        
+        private void timer3_Tick(object sender, EventArgs e)
+        {
+            countDown--;
+            if (countDown<=0)
+            {
+                label8.Visible = false;
+                cekValid();
+                timer1.Start();
+                timer2.Start();
+                timer3.Stop();
+            }
+            else
+            {
+                label8.Text = "" + countDown;
+            }
         }
     }
 }
