@@ -111,9 +111,21 @@ namespace TyperZombies
                     cmd.ExecuteNonQuery();
                     conn.Close();
 
-                    conn.Open();
-                    query = $"Insert into Highscore(id_player,skor,gold,level,status) values('{id}','0','0','1','1')";
+                    //conn.Open();
+                    //query = $"Insert into Highscore(id_player,skor,gold,level,status) values('{id}','0','0','1','1')";
+                    //cmd = new SqlCommand(query, conn);
+                    //cmd.ExecuteNonQuery();
+                    //conn.Close();
+
+                    query = "insert into [Highscore] (id_player,skor,gold,level,status) values(@id,@skor,@gold,@level,@status)";
                     cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@id", id);
+                    cmd.Parameters.AddWithValue("@skor", 0);
+                    cmd.Parameters.AddWithValue("@gold", 0);
+                    cmd.Parameters.AddWithValue("@level", 1);
+                    cmd.Parameters.AddWithValue("@status", 1);
+
+                    conn.Open();
                     cmd.ExecuteNonQuery();
                     conn.Close();
 

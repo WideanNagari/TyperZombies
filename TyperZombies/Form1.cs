@@ -295,6 +295,8 @@ namespace TyperZombies
                     label5.Visible = false;
                 }
             }
+            if (p1.level % 5 == 0 && timer2.Interval>1000) timer2.Interval -= 5;
+            //Console.WriteLine(p1.level+" - "+timer2.Interval);
 
             Invalidate();
             if (dead)
@@ -309,20 +311,19 @@ namespace TyperZombies
                 cmd.ExecuteNonQuery();
                 conn.Close();
 
-                query = "update [Highscore] set status=@status,skor=@skor,gold=@gold,level=@level where id_player= @idx";
-                cmd.Parameters.AddWithValue("@status", 0);
-                cmd.Parameters.AddWithValue("@skor", p1.score);
-                cmd.Parameters.AddWithValue("@gold", p1.gold);
-                cmd.Parameters.AddWithValue("@level", p1.level);
-                cmd.Parameters.AddWithValue("@idx", p1.id);
+                //MessageBox.Show(p1.id+" level: "+p1.level+" score:"+p1.score+" gold:"+p1.gold);
 
                 conn.Open();
+                query = $"Update Highscore set skor = '" + p1.score + "',gold = '" + p1.gold + "',level = '" + p1.level + "',status = 0 where id_player = '" + p1.id + "'";
+                cmd = new SqlCommand(query, conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
 
                 MessageBox.Show("Game Over!");
                 this.Close();
             }
+
+            
         }
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
