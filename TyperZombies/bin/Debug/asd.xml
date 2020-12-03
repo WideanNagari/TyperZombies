@@ -1,3 +1,13 @@
 <ListPlayer>
-  <player id="P006" level="8" score="9275" gold="9465" hp="700" maxhp="1500" kill="26" killParty="5" party="0" bomb="0" heal="0" hpBooster="1" sog="0" aBox="0" efekSog="0" efekBox="-5" />
+  <player id="P006" level="11" score="13075" gold="13245" hp="700" maxhp="1500" kill="36" killParty="8" party="0" bomb="0" heal="0" hpBooster="1" sog="0" aBox="0" efekSog="0" efekBox="-7">
+    <zombie jenis="Beatrix" x="498" y="60" ctr="4" hp="2">height</zombie>
+    <zombie jenis="Beatrix" x="417" y="60" ctr="1" hp="2">serve</zombie>
+    <zombie jenis="George" x="444" y="60" ctr="3" hp="2">important</zombie>
+    <zombie jenis="George" x="336" y="-50" ctr="6" hp="2">traditional</zombie>
+    <zombie jenis="Beatrix" x="168" y="250" ctr="2" hp="2">transport</zombie>
+    <zombie jenis="George" x="224" y="-50" ctr="2" hp="2">product</zombie>
+    <zombie jenis="Jester" x="145" y="0" ctr="9" hp="1">culture</zombie>
+    <zombie jenis="George" x="4" y="160" ctr="1" hp="2">advertising</zombie>
+    <zombie jenis="AGeorge" x="4" y="250" ctr="1" hp="2">news</zombie>
+  </player>
 </ListPlayer>

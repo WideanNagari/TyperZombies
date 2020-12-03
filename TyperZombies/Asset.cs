@@ -23,6 +23,9 @@ namespace TyperZombies
         public Image valent { get; set; }
         public Image widean { get; set; }
 
+        //background
+        public Image background { get; set; }
+
         //item
         public Image bom { get; set; }
         public Image heal { get; set; }
@@ -136,6 +139,8 @@ namespace TyperZombies
             indah = Image.FromFile("./asset2/indah.png");
             valent = Image.FromFile("./asset2/valentino.png");
             widean = Image.FromFile("./asset2/widean.png");
+
+            background = Image.FromFile("background.png");
 
             bom = Image.FromFile("./asset2/bomb.png");
             heal = Image.FromFile("./asset2/heal.png");
