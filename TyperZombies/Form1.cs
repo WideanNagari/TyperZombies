@@ -33,11 +33,13 @@ namespace TyperZombies
         Font f;
         bool bomb2;
         bool dead;
+        bool first;
         string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=" + AppDomain.CurrentDomain.BaseDirectory + "db_proyek.mdf;Integrated Security=True;Connect Timeout=30";
         private void Form1_Load(object sender, EventArgs e)
         {
             countDown = 3;
             dead = false;
+            first = true;
             label1.Text = p1.hp+"/"+ p1.maxhp;
             label2.Text = "Score: "+p1.score;
             label3.Text = "Gold: "+p1.gold;
@@ -73,7 +75,7 @@ namespace TyperZombies
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-            g.DrawImage(Image.FromFile("background.png"), 0, 0, 1120, 600);
+            g.DrawImage(assets.background, 0, 0, 1120, 600);
             foreach (Zombie z in arrZombie)
             {
                 g.DrawImage(z.sprite, z.x, z.y, z.sprite.Width / 2.3f, z.sprite.Height / 2.3f);
@@ -279,6 +281,7 @@ namespace TyperZombies
             if (bomb2 && d == 1) bomb2 = false;
             if (p1.level % 3 == 0 && p1.party == 0)
             {
+                //ctrSpawn = 2;
                 p1.party = 100;
                 progressBar2.Value = p1.party;
                 label5.Visible = true;
@@ -356,6 +359,7 @@ namespace TyperZombies
             }
             int cd = 3;
             if (p1.party>0) cd = 2;
+            Console.WriteLine(ctrSpawn + " " + cd);
             if (ctrSpawn == cd)
             {
                 int jumlah = r.Next(1, 3);
@@ -441,6 +445,10 @@ namespace TyperZombies
             label6.Visible = false;
             label8.Text = "" + countDown;
             label8.Visible = true;
+            if (first)
+            {
+                timer2.Start();
+            }
             timer3.Start();
         }
 
@@ -526,7 +534,14 @@ namespace TyperZombies
                 label8.Visible = false;
                 cekValid();
                 timer1.Start();
-                timer2.Start();
+                if (first)
+                {
+                    first = false;
+                }
+                else
+                {
+                    timer2.Start();
+                }
                 timer3.Stop();
             }
             else
