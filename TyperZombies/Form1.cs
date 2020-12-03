@@ -295,7 +295,7 @@ namespace TyperZombies
                     label5.Visible = false;
                 }
             }
-            if (p1.level % 5 == 0 && timer2.Interval>1000) timer2.Interval -= 5;
+            if (p1.level % 5 == 0 && timer2.Interval>1000) timer2.Interval -= 50;
             //Console.WriteLine(p1.level+" - "+timer2.Interval);
 
             Invalidate();

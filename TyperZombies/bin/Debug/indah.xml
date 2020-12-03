@@ -1,3 +1,17 @@
 <ListPlayer>
-  <player id="P002" level="20" score="20400" gold="20960" hp="1450" maxhp="2000" kill="66" killParty="7" party="0" bomb="0" heal="2" hpBooster="2" sog="0" aBox="0" efekSog="0" efekBox="-13" />
+  <player id="P002" level="24" score="26650" gold="26980" hp="1100" maxhp="2000" kill="80" killParty="12" party="50" bomb="0" heal="2" hpBooster="2" sog="0" aBox="0" efekSog="0" efekBox="-16">
+    <zombie jenis="Beatrix" x="884" y="-50" ctr="2" hp="2">die</zombie>
+    <zombie jenis="Beatrix" x="803" y="160" ctr="5" hp="2">extent</zombie>
+    <zombie jenis="Beatrix" x="638" y="-50" ctr="4" hp="1">product</zombie>
+    <zombie jenis="George" x="776" y="250" ctr="1" hp="2">kiss</zombie>
+    <zombie jenis="Jester" x="945" y="110" ctr="9" hp="1">culture</zombie>
+    <zombie jenis="AGeorge" x="664" y="250" ctr="3" hp="2">turkey</zombie>
+    <zombie jenis="AGeorge" x="556" y="-50" ctr="6" hp="2">stage</zombie>
+    <zombie jenis="AGeorge" x="444" y="160" ctr="2" hp="2">purple</zombie>
+    <zombie jenis="Beatrix" x="227" y="60" ctr="5" hp="2">file</zombie>
+    <zombie jenis="Jester" x="287" y="210" ctr="1" hp="1">crazy</zombie>
+    <zombie jenis="AGeorge" x="132" y="-50" ctr="4" hp="2">shape</zombie>
+    <zombie jenis="George" x="132" y="160" ctr="4" hp="2">depart</zombie>
+    <zombie jenis="Jester" x="28" y="110" ctr="4" hp="1">purple</zombie>
+  </player>
 </ListPlayer>
