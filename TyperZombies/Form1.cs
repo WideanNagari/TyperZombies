@@ -359,7 +359,6 @@ namespace TyperZombies
             }
             int cd = 3;
             if (p1.party>0) cd = 2;
-            Console.WriteLine(ctrSpawn + " " + cd);
             if (ctrSpawn == cd)
             {
                 int jumlah = r.Next(1, 3);
