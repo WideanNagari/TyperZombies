@@ -172,7 +172,7 @@ namespace TyperZombies
 
         public string randomKata()
         {
-            int idx = r.Next(0,102);
+            int idx = r.Next(0,250);
             return bankKata[idx];
         }
     }
