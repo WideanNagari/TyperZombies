@@ -34,9 +34,11 @@ namespace TyperZombies
         bool bomb2;
         bool dead;
         bool first;
+        bool party;
         string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=" + AppDomain.CurrentDomain.BaseDirectory + "db_proyek.mdf;Integrated Security=True;Connect Timeout=30";
         private void Form1_Load(object sender, EventArgs e)
         {
+            party = false;
             countDown = 3;
             dead = false;
             first = true;
@@ -292,6 +294,7 @@ namespace TyperZombies
                 progressBar2.Value = p1.party;
                 if (p1.party==0)
                 {
+                    party = false;
                     p1.level++;
                     if (p1.efekBox>0) p1.efekBox--;
                     label4.Text = "Level: "+p1.level;
@@ -358,7 +361,15 @@ namespace TyperZombies
                 else label7.Visible = false;
             }
             int cd = 3;
-            if (p1.party>0) cd = 2;
+            if (p1.party > 0)
+            {
+                cd = 2;
+                if (party==false)
+                {
+                    party = true;
+                    ctrSpawn = 2;
+                }
+            }
             if (ctrSpawn == cd)
             {
                 int jumlah = r.Next(1, 3);
